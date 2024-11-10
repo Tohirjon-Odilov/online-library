@@ -1,0 +1,93 @@
+/* Main container style */
+.site-main .intro-section {
+  padding: 50px 0;
+  background-color: #f9f9f9;
+}
+
+.intro{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/* Left side text style */
+.intro-text {
+  max-width: 400px;
+}
+
+.intro-text h2 {
+  font-size: 80px;
+  line-height: 1.2;
+  margin: 0;
+  font-weight: bold;
+}
+
+.intro-text p {
+  font-size: 16px;
+  color: #555;
+  margin: 20px 0;
+}
+
+.intro-text button {
+  padding: 12px 24px;
+  font-size: 14px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.intro-text button:hover {
+  background-color: #555;
+}
+
+/* Right side book list style */
+.intro-card {
+  display: flex;
+}
+
+.intro-list {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.intro-item {
+  text-align: center;
+  max-width: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.intro-item img {
+  width: 100%;
+  height: auto;
+  // border-radius: 50% / 10%;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.intro-item:nth-child(even){
+  flex-direction: column-reverse;
+  img{
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+  }
+}
+
+.intro-item h3 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.intro-item p {
+  font-size: 14px;
+  color: #777;
+  margin-top: 5px;
+}

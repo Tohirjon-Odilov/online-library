@@ -25,7 +25,22 @@ const routes: Routes = [
         // data: { roles: [ROLES.ADMIN, ROLES.USER] }, // Foydalanuvchining roliga ko'ra himoya
       }, // Home moduli uchun lazy load
     ],
-  },{
+  },
+  // {
+  //   path: "login",
+  //   loadComponent: () =>
+  //     import("./features/auth/components/login/login.component").then(
+  //       (m) => m.LoginComponent
+  //     ),
+  // },
+  // {
+  //   path: "register",
+  //   loadComponent: () =>
+  //     import("./features/auth/components/register/register.component").then(
+  //       (m) => m.RegisterComponent
+  //     ),
+  // },
+  {
     path: 'error-pages',
     loadChildren: () =>
       import('./features/error-pages/error-pages.module').then(

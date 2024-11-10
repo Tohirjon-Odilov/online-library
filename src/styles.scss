@@ -34,6 +34,20 @@
   --h2-color: #6c757d; /* Subheading color */
   --p-color: #adb5bd; /* Paragraph text color */
   --link-hover-bg: #5a6268; /* Hover background color for link */
+
+  // login component
+  --primary-color: #4EA685;
+  --secondary-color: #57B894;
+  --black: #000000;
+  --white: #ffffff;
+  --gray: #efefef;
+  --gray-2: #757575;
+
+  --facebook-color: #4267B2;
+  --google-color: #DB4437;
+  --twitter-color: #1DA1F2;
+  --insta-color: #E1306C;
+
 }
 
 .dark-mode {
@@ -88,7 +102,7 @@ body {
 }
 
 .container{
-  max-width: 1920px;
+  max-width: 1440px;
   margin: 0 auto;
   padding: 20px;
 }

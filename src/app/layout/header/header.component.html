@@ -1,1 +1,31 @@
-<p>header works!</p>
+<header class="site-header">
+  <div class="container">
+    <div class="header">
+      <!-- Logo with enhanced style -->
+      <a class="logo" [routerLink]="['/']" target="_blank" rel="noopener noreferrer">
+        MOI.<span>Book</span>
+      </a>
+
+      <!-- Navigation menu with improved styles -->
+      <nav class="header-nav">
+        <ul class="header-list">
+          <li class="header-item"><a href="javascript:void(0)">Books</a></li>
+          <li class="header-item"><a href="javascript:void(0)">Categories</a></li>
+          <li class="header-item"><a href="javascript:void(0)">Wishlist</a></li>
+          <li class="header-item"><a href="javascript:void(0)">Blog</a></li>
+          <li class="header-item"><a href="javascript:void(0)">About Us</a></li>
+          <li class="header-item"><a href="javascript:void(0)">Report</a></li>
+        </ul>
+      </nav>
+
+      <!-- Search and icons -->
+      <div class="header-actions">
+        <input class="search-input" type="search" placeholder="Kitob qidirish">
+        <div class="icon-group">
+          <i class="fas fa-shopping-cart"></i>
+          <i class="fas fa-user"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
