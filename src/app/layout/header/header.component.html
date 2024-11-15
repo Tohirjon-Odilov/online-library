@@ -2,14 +2,14 @@
   <div class="container">
     <div class="header">
       <!-- Logo with enhanced style -->
-      <a class="logo" [routerLink]="['/']" target="_blank" rel="noopener noreferrer">
+      <a class="logo" [routerLink]="['/']" rel="noopener noreferrer">
         MOI.<span>Book</span>
       </a>
 
       <!-- Navigation menu with improved styles -->
       <nav class="header-nav">
         <ul class="header-list">
-          <li class="header-item"><a href="javascript:void(0)">Books</a></li>
+          <li class="header-item"><a href="javascript:void(0)" (click)="jumpTo('authors')">Books</a></li>
           <li class="header-item"><a href="javascript:void(0)">Categories</a></li>
           <li class="header-item"><a href="javascript:void(0)">Wishlist</a></li>
           <li class="header-item"><a href="javascript:void(0)">Blog</a></li>
@@ -23,9 +23,16 @@
         <input class="search-input" type="search" placeholder="Kitob qidirish">
         <div class="icon-group">
           <i class="fas fa-shopping-cart"></i>
-          <i class="fas fa-user"></i>
+          <i class="fas fa-user" (click)="toggleDropdown()"></i>
         </div>
       </div>
     </div>
   </div>
 </header>
+
+<div class="dropdown-menu" *ngIf="isDropdownVisible">
+  <ul>
+    <li (click)="goToProfile()">Profile</li>
+    <li (click)="logout()">Logout</li>
+  </ul>
+</div>
