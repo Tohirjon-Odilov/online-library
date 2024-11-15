@@ -4,6 +4,8 @@ import { HomeComponent } from './components/home/home.component';
 import { RoleGuard } from '../../core/guards/role.guard';
 import { AuthGuard } from '../../core/guards/auth.guard';
 import { ProfileComponent } from './components/profile/profile.component';
+import { AllBooksComponent } from './components/all-books/all-books.component';
+import { BookDetailComponent } from './components/book-detail/book-detail.component';
 
 const routes: Routes = [
   {
@@ -15,6 +17,18 @@ const routes: Routes = [
   {
     path: "profile",
     component: ProfileComponent
+  },
+  {
+    path: 'all-books',
+    component: AllBooksComponent
+  },
+  {
+    path: 'book-detail',
+    component: BookDetailComponent
+  },
+  {
+    path: '**',
+    redirectTo: '',
   }
 ];
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core'; // Ko'p tillilik uchun ngx-translate
 import { ThemeService } from './core/services/theme.service'; // Dark/Light Mode boshqaruvi uchun xizmat
 import { LoggerService } from './core/services/logger.service';
@@ -44,4 +44,18 @@ export class AppComponent implements OnInit {
   toggleTheme() {
     this.themeService.toggleTheme();
   }
+
+
+  showErrorModal: boolean = false;
+  errorMessage: string = '';
+
+  @HostListener('document:keydown.control.enter', ['$event'])
+  onCtrlEnter(event: KeyboardEvent) {
+    this.showErrorModal = true;
+  }
+
+  closeModal() {
+    this.showErrorModal = false;
+  }
+  
 }

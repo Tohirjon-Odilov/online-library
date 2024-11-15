@@ -65,7 +65,7 @@
             </div>
           </li>
         </ul>
-        <button>See All</button>
+        <button [routerLink]="['/all-books']">See All</button>
       </div>
     </div>
   </section>
@@ -94,7 +94,7 @@
   <section class="authors-section" id="authors">
       <div class="wrapper container">
         <h2>Get to know</h2>
-        <a href="#" class="see-all">See all</a>
+        <a [routerLink]="['/authors']" class="see-all">See all</a>
       </div>
       <div class="authors">
         <div class="container authors">

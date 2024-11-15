@@ -7,17 +7,25 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from "../../shared/shared.module";
 
+import { ErrorReportComponent } from './components/error-report/error-report.component';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
     AccessDeniedComponent,
-       NotFoundComponent
+       NotFoundComponent,
+       ErrorReportComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
     ErrorPagesRoutingModule,
-    SharedModule
+    SharedModule,
+    FormsModule
+],
+exports: [
+  ErrorReportComponent
 ]
 })
 export class ErrorPagesModule { }
