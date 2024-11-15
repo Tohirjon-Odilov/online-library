@@ -1,0 +1,27 @@
+<section class="profile-section">
+  <div class="container">
+    <div class="profile-header">
+      <div class="profile-avatar">
+        <img src="../../../../../assets/imgs/avatar.png" alt="User Avatar" />
+      </div>
+      <div class="profile-info">
+        <h1>John Doe</h1>
+        <p class="bio">
+          Enthusiastic reader and book lover. Passionate about exploring new genres and authors.
+        </p>
+        <button class="edit-profile-btn">Edit Profile</button>
+      </div>
+    </div>
+
+    <div class="favorite-books">
+      <h2>Favorite Books</h2>
+      <div class="books-list">
+        <div class="book-card" *ngFor="let book of favoriteBooks">
+          <img [src]="book.image" alt="Book Cover" class="book-cover" />
+          <h3>{{ book.title }}</h3>
+          <p>{{ book.author }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -4,7 +4,7 @@
   background-color: #f9f9f9;
 }
 
-.intro{
+.intro {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -70,9 +70,9 @@
   margin-bottom: 10px;
 }
 
-.intro-item:nth-child(even){
+.intro-item:nth-child(even) {
   flex-direction: column-reverse;
-  img{
+  img {
     border-bottom-left-radius: 50%;
     border-bottom-right-radius: 50%;
     border-top-right-radius: 0;
@@ -90,4 +90,206 @@
   font-size: 14px;
   color: #777;
   margin-top: 5px;
+}
+
+.offers-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  h2 {
+    font-size: 40px;
+    align-self: flex-start;
+  }
+
+  .intro-list {
+    gap: 50px;
+  }
+
+  .intro-item {
+    max-width: 350px !important;
+    * {
+      font-size: 28px;
+    }
+    img {
+      width: 350px;
+    }
+  }
+
+  button {
+    padding: 15px 25px;
+    font-size: 20px;
+    background-color: #f9f9f9;
+    color: #333;
+    border: #333 1px solid;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #333;
+      color: #f9f9f9;
+    }
+  }
+}
+
+.event-section {
+  background-color: #0d1b2a; /* Qorong‘i fon */
+  margin-top: 50px;
+
+  .book-fair-container {
+    display: flex;
+    color: #fff;
+    padding: 40px;
+  }
+
+  .books-image {
+    height: 400px;
+    overflow: hidden;
+    img {
+      width: 100%;
+      object-fit: fill;
+      object-position: center;
+    }
+  }
+
+  .book-image {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+  }
+
+  .event-info {
+    width: 40%;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    // border-left: 2px solid #fff;
+    text-align: center;
+  }
+
+  .event-info h2 {
+    font-size: 56px;
+    margin-bottom: 20px;
+  }
+
+  .event-info p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+
+  .create-account-btn {
+    background-color: #f6522e;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    align-self: flex-start;
+    margin: 0 auto;
+  }
+
+  .create-account-btn:hover {
+    background-color: #d9431b;
+  }
+}
+
+.authors-section {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  text-align: center;
+  position: relative;
+  font-family: Arial, sans-serif;
+
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 50px 20px 0;
+  }
+
+  h2 {
+    font-size: 48px;
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 40px;
+  }
+
+  .see-all {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+  .authors {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: center;
+    background-color: #2d2a4a;
+    width: 100%;
+    .container {
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+    }
+  }
+
+  .author-card {
+    color: #ffffff;
+    padding: 0px 20px;
+    // width: 350px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+    flex-direction: row-reverse;
+  }
+
+  .author-image {
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .author-image img {
+    width: 350px;
+    height: 400px;
+    object-fit: cover;
+  }
+
+  .author-info {
+    color: #c4c4c4;
+    text-align: left;
+    max-width: 300px;
+  }
+
+  .author-name {
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 10px;
+  }
+
+  .author-about {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #b197fc;
+  }
+
+  .author-info p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+  }
 }
