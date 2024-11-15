@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +8,10 @@ import { Router } from '@angular/router';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router, 
+    private toastr: ToastrService
+  ) {}
 
   jumpTo(section: string) {
     const element = document.getElementById(section);
@@ -31,5 +35,9 @@ export class HeaderComponent {
     this.isDropdownVisible = false;
     // Logout jarayonini bajarish (tokenni o'chirish yoki API chaqiruv)
     this.router.navigate(['/auth/register']); // Login sahifasiga yo'naltirish
+  }
+
+  showReportInfo(): void {
+    this.toastr.info('Iltimos ctrl+enter tugmasidan foydalaning!', 'Info');
   }
 }
