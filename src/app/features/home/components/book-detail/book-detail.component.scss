@@ -1,5 +1,5 @@
 .book-detail-container {
-  max-width: 800px;
+  // max-width: 800px;
   width: 100%;
   margin: 20px auto;
   padding: 20px;
@@ -93,4 +93,8 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.read-online-tab iframe {
+  border: none;
 }

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-book-detail',
@@ -8,6 +9,8 @@ import { Component, Input, OnInit } from '@angular/core';
 export class BookDetailComponent implements OnInit {
   @Input() book: any;
   activeTab: string = 'info';
+
+  constructor(public sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
     // Placeholder data, replace this with actual book data from the parent component or service
