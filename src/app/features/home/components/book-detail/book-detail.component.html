@@ -1,26 +1,30 @@
-<div class="book-detail-container">
-  <div class="book-header">
-    <img class="book-cover" [src]="book.cover" alt="{{ book.title }}" />
-    <div class="book-info">
-      <h1>{{ book.title }}</h1>
-      <p class="description">{{ book.description }}</p>
-      <ul class="book-details">
-        <li *ngFor="let detail of book.details">{{ detail }}</li>
-      </ul>
-    </div>
-  </div>
-  <div class="book-content">
-    <div class="tab-navigation">
-      <button class="tab-btn" [class.active]="activeTab === 'info'" (click)="selectTab('info')">Info</button>
-      <button class="tab-btn" [class.active]="activeTab === 'reviews'" (click)="selectTab('reviews')">Reviews</button>
-    </div>
-    <div class="tab-content">
-      <div *ngIf="activeTab === 'info'" class="info-tab">
-        <p>{{ book.fullDescription }}</p>
-      </div>
-      <div *ngIf="activeTab === 'reviews'" class="reviews-tab">
-        <p *ngFor="let review of book.reviews">{{ review }}</p>
+<div class="container">
+
+  <div class="book-detail-container">
+    <div class="book-header">
+      <img class="book-cover" [src]="book.cover" alt="{{ book.title }}" />
+      <div class="book-info">
+        <h1>{{ book.title }}</h1>
+        <p class="description">{{ book.description }}</p>
+        <ul class="book-details">
+          <li *ngFor="let detail of book.details">{{ detail }}</li>
+        </ul>
       </div>
     </div>
+    <div class="book-content">
+      <div class="tab-navigation">
+        <button class="tab-btn" [class.active]="activeTab === 'info'" (click)="selectTab('info')">Info</button>
+        <button class="tab-btn" [class.active]="activeTab === 'reviews'" (click)="selectTab('reviews')">Reviews</button>
+      </div>
+      <div class="tab-content">
+        <div *ngIf="activeTab === 'info'" class="info-tab">
+          <p>{{ book.fullDescription }}</p>
+        </div>
+        <div *ngIf="activeTab === 'reviews'" class="reviews-tab">
+          <p *ngFor="let review of book.reviews">{{ review }}</p>
+        </div>
+      </div>
+    </div>
   </div>
+  
 </div>

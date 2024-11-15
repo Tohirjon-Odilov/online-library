@@ -5,6 +5,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AllBooksComponent } from './components/all-books/all-books.component';
 import { BookDetailComponent } from './components/book-detail/book-detail.component';
+import { AllAuthorsComponent } from './components/all-authors/all-authors.component';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import { BookDetailComponent } from './components/book-detail/book-detail.compon
     ProfileComponent,
     AllBooksComponent,
     BookDetailComponent,
+    AllAuthorsComponent,
   ],
   imports: [
     CommonModule,
