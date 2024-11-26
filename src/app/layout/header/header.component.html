@@ -9,10 +9,10 @@
       <!-- Navigation menu with improved styles -->
       <nav class="header-nav">
         <ul class="header-list">
+          <li class="header-item" [routerLink]="['/']"><a href="javascript:void(0)">Home</a></li>
           <li class="header-item"><a href="javascript:void(0)" (click)="jumpTo('books')" [routerLink]="['/all-books']">Books</a></li>
           <li class="header-item" (click)="jumpTo('categories')" [routerLink]="['/all-categories']"><a href="javascript:void(0)">Categories</a></li>
           <!-- <li class="header-item" (click)="jumpTo('wishlist')"><a href="javascript:void(0)">Wishlist</a></li> -->
-          <!-- <li class="header-item" (click)="jumpTo('blog')"><a href="javascript:void(0)">Blog</a></li> -->
           <li class="header-item"><a href="javascript:void(0) " (click)="jumpTo('aboutus')">About Us</a></li>
           <li class="header-item"><a href="javascript:void(0)" (click)="showReportInfo()">Report</a></li>
         </ul>
