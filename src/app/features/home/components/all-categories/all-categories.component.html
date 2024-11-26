@@ -1,0 +1,23 @@
+<section class="categories-section">
+  <div class="container">
+    <div class="categories-container">
+      <h1>All Categories</h1>
+      <div class="category-list">
+        <div
+          *ngFor="let category of categories"
+          class="category-item"
+          (click)="toggleCategory(category)"
+          [class.selected]="selectedCategory === category"
+        >
+          <p>{{ category }}</p>
+        </div>
+      </div>
+    
+      <div class="category-detail" *ngIf="selectedCategory">
+        <h2>{{ selectedCategory }} Details</h2>
+        <p>Here are more details about the {{ selectedCategory }} category.</p>
+      </div>
+    </div>
+    
+  </div>
+</section>

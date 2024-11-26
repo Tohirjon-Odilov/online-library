@@ -6,7 +6,7 @@
         <div class="intro-text">
           <h2>Find Your <br> Next Book</h2>
           <p>Our most popular and trending <strong>On.Book</strong> perfect.<br> Not sure what to read now next reading mood perfectly.</p>
-          <button>Explore Now</button>
+          <button [routerLink]="['/all-books']">Explore Now</button>
         </div>
 
         <!-- Right side book list -->
@@ -65,7 +65,7 @@
             </div>
           </li>
         </ul>
-        <button [routerLink]="['/all-books']">See All</button>
+        <button [routerLink]="['/all-categories']">See All</button>
       </div>
     </div>
   </section>
@@ -96,7 +96,7 @@
         <h2>Get to know</h2>
         <a [routerLink]="['/all-authors']" class="see-all">See all</a>
       </div>
-      <div class="authors">
+      <div class="author">
         <div class="container authors">
           <div class="author-card">
             <div class="author-image">
