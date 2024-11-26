@@ -52,7 +52,6 @@ export class BookDetailComponent implements OnInit {
   openPdfViewer(fileUrl: string): void {
     this.currentFile = fileUrl;
     this.showPdfViewer = true;
-    this.selectTab('readOnline')
   }
   
   selectTab(tab: string) {

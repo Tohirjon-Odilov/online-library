@@ -28,7 +28,7 @@
         </button>
         <button
           class="tab-btn"
-          (click)="openPdfViewer('')"
+          (click)="selectTab('readOnline')"
         >
           Read Online
         </button>
@@ -40,18 +40,18 @@
         <div *ngIf="activeTab === 'reviews'" class="reviews-tab">
           <p *ngFor="let review of book.reviews">{{ review }}</p>
         </div>
-        <!-- <div *ngIf="activeTab === 'readOnline'" class="read-online-tab"> -->
-        <!-- <button (click)="closePdfViewer()" class="btn-close">✖</button> -->
+        <div *ngIf="activeTab === 'readOnline'" class="read-online-tab">
+          <button (click)="openPdfViewer('')" class="pdf-open">Open</button>
+          <iframe [src]="sanitizer.bypassSecurityTrustResourceUrl('../../../../../assets/data/Vilyam-Shekspir-Hamlet-tragediya.pdf#toolbar=0&navpanes=0&scrollbar=0&zoom=150')"  width="100%" height="800px"></iframe>
         <!-- Fullscreen tugmasi -->
         <!-- <button (click)="openFullscreen()" class="btn-fullscreen">
               <i class="fas fa-expand"></i>
             </button>
             <button (click)="closeFullscreen()" class="btn-compress">
               <i class="fas fa-compress"></i>
-            </button>
-          <iframe [src]="sanitizer.bypassSecurityTrustResourceUrl('../../../../../assets/data/Vilyam-Shekspir-Hamlet-tragediya.pdf#toolbar=0&navpanes=0&scrollbar=0&zoom=150')"  width="100%" height="800px"></iframe> -->
-        <!-- </div> -->
-      </div>
+            </button>-->
+          <!-- </div> -->
+        </div>
     </div>
   </div>
 </div>
