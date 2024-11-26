@@ -24,7 +24,39 @@ export class BookDetailComponent implements OnInit {
     };
   }
 
+  showPdfViewer: boolean = false; // PDF viewer modal
+  currentFile: string = ''; // Hozir ochilgan fayl
+ 
+
+  closePdfViewer(): void {
+    this.showPdfViewer = false;
+    this.currentFile = '';
+    document.exitFullscreen();
+  }
+
+  // To'liq ekran rejimiga o'tish funksiyasi
+  openFullscreen(): void {
+    const elem = document.documentElement;
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    }
+  }
+
+  // Fullscreen rejimidan chiqish funksiyasi
+  closeFullscreen(): void {
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    }
+  }
+
+  openPdfViewer(fileUrl: string): void {
+    this.currentFile = fileUrl;
+    this.showPdfViewer = true;
+    this.selectTab('readOnline')
+  }
+  
   selectTab(tab: string) {
     this.activeTab = tab;
+
   }
 }

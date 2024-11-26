@@ -98,3 +98,101 @@
 .read-online-tab iframe {
   border: none;
 }
+
+
+
+/* PDF modal */
+.pdf-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Yengil qora fon */
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  z-index: 9999;
+}
+
+.modal-content {
+  background-color: #ffffff; /* Oq fon */
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  // max-width: 1200px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Yengil soyalar */
+  position: relative;
+}
+
+.btn-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: #333; /* To'q kulrang rang */
+  font-size: 20px;
+  cursor: pointer;
+
+  &:hover {
+    color: #e74c3c; /* Qizil rang hover effekti */
+  }
+}
+
+iframe {
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  height: 100vh;
+  // pointer-events: none;
+}
+
+.pdf-wrapper{
+  position: relative;
+}
+
+// .pdf-modal {
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100%;
+//   background-color: rgba(0, 0, 0, 0.8);
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   z-index: 9999;
+// }
+
+// .modal-content {
+//   background-color: white;
+//   padding: 20px;
+//   border-radius: 10px;
+//   width: 100%;
+//   height: 100vh;
+//   // max-width: 900px;
+//   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+//   position: relative;
+// }
+
+.btn-close,
+.btn-fullscreen,
+.btn-compress {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  background: none;
+  border: none;
+  color: black;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.btn-fullscreen {
+  right: 80px;
+}
+
+.btn-compress {
+  right: 130px;
+}
