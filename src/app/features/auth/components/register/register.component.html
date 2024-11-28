@@ -7,21 +7,32 @@
         <div class="form sign-up">
           <div class="input-group">
             <i class='bx bxs-user'></i>
-            <input type="text" placeholder="Username">
+            <input type="text" placeholder="To'liq ismingiz" [(ngModel)]="registerData.full_name">
           </div>
           <div class="input-group">
             <i class='bx bx-mail-send'></i>
-            <input type="email" placeholder="Email">
+            <input type="tel" placeholder="Telefon Raqamingiz"
+            [(ngModel)]="registerData.phone_number">
+          </div>
+          <div class="input-group">
+            <i class='bx bx-mail-send'></i>
+            <input type="email" placeholder="Emailingiz"
+            [(ngModel)]="registerData.email">
+          </div>
+          <div class="input-group">
+            <i class='bx bx-mail-send'></i>
+            <input type="text" placeholder="Viloyatni tanlang"
+            [(ngModel)]="registerData.country_id">
           </div>
           <div class="input-group">
             <i class='bx bxs-lock-alt'></i>
-            <input type="password" placeholder="Password">
+            <input type="password" placeholder="Parolni kiriting">
           </div>
           <div class="input-group">
             <i class='bx bxs-lock-alt'></i>
-            <input type="password" placeholder="Confirm password">
+            <input type="password" placeholder="Parolni qayta kiriting" [(ngModel)]="registerData.password">
           </div>
-          <button [routerLink]="['/']">Sign up</button>
+          <button (click)="register()">Sign up</button>
           <p>
             <span>Already have an account?</span>
             <b (click)="toggle()" class="pointer">Sign in here</b>

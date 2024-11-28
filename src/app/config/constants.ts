@@ -1,3 +1,5 @@
+import { environment } from "../../environments/environment";
+
 // constants.ts
 export const ROLES = {
   SUPERADMIN: 'superadmin',
@@ -5,10 +7,17 @@ export const ROLES = {
   USER: 'user',
 };
 
+const BASE_URL = environment.baseUrl;
+
 export const API_URLS = {
-  LOGIN_URL: 'https://database-back-end-production.up.railway.app/api/login/',
-  OTHER_API_URL: 'https://example.com/other-api',
-  USERS: 'https://api.example.com/users',
+  // Auth URLs
+  LOGIN_URL: BASE_URL + '/login',
+  REGISTER_URL: BASE_URL + '/register',
+  CHANGE_EMAIL_URL: BASE_URL + '/change-email',
+  CHANGE_PASSWORD_URL: BASE_URL + '/change-password',
+
+  //
+  USERS: BASE_URL +'/users',
 };
 
 export const STATUS_CODES = {

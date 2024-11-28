@@ -5,6 +5,7 @@ import { Observable, BehaviorSubject, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { API_URLS, ROLES } from '../../config/constants'; // constants.ts dan import qilish
 import { LoggerService } from '../services/logger.service';
+import { RegisterDTO } from '../models/register.model';
 
 @Injectable({
   providedIn: 'root'
@@ -42,6 +43,21 @@ export class AuthService {
       }),
       catchError(this.handleError) // Xatolarni boshqarish
     );
+  }
+
+  registerUser(data: RegisterDTO): Observable<any> {
+    const formData = new FormData();
+    formData.append('FullName', data.full_name);
+    formData.append('PhoneNumer', data.phone_number);
+    formData.append('Email', data.email);
+    formData.append('Password', data.password);
+    formData.append('CountryId', data.country_id.toString());
+
+    if (data.picture) {
+      formData.append('Picture', data.picture);
+    }
+
+    return this.http.post(`${API_URLS.REGISTER_URL}`, formData);
   }
 
   // Foydalanuvchini logout qilish
