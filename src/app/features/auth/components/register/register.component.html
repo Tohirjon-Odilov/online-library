@@ -34,6 +34,8 @@
           </div>
           <button (click)="register()">Sign up</button>
           <p>
+            <span *ngIf="errorMessage" class="error">{{errorMessage}}</span>
+            <br>
             <span>Already have an account?</span>
             <b (click)="toggle()" class="pointer">Sign in here</b>
           </p>
@@ -47,13 +49,13 @@
         <div class="form sign-in">
           <div class="input-group">
             <i class='bx bxs-user'></i>
-            <input type="text" placeholder="Username">
+            <input type="email" placeholder="Email" [(ngModel)]="loginDTO.email">
           </div>
           <div class="input-group">
             <i class='bx bxs-lock-alt'></i>
-            <input type="password" placeholder="Password">
+            <input type="password" placeholder="Password" [(ngModel)]="loginDTO.password">
           </div>
-          <button [routerLink]="['/']">Sign in</button>
+          <button (click)="login()">Sign in</button>
           <p><b>Forgot password?</b></p>
           <p>
             <span>Don't have an account?</span>

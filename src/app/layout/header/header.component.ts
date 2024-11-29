@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { AuthService } from '../../core/authentication/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +11,8 @@ import { ToastrService } from 'ngx-toastr';
 export class HeaderComponent {
   constructor(
     private router: Router, 
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private auth: AuthService
   ) {}
 
   jumpTo(section: string) {
@@ -34,7 +36,9 @@ export class HeaderComponent {
   logout(): void {
     this.isDropdownVisible = false;
     // Logout jarayonini bajarish (tokenni o'chirish yoki API chaqiruv)
-    this.router.navigate(['/auth/register']); // Login sahifasiga yo'naltirish
+    // this.logout();
+    this.auth.logout();
+    // this.router.navigate(['/auth/register']); // Login sahifasiga yo'naltirish
   }
 
   showReportInfo(): void {

@@ -25,16 +25,18 @@ export class RoleGuard implements CanActivate {
 
     // Foydalanuvchi ro'llarini kuzatish
     return this.authService.getUserRoles().pipe(
-      map((userRoles: string[]) => {
+      map((userRoles) => {
         // Foydalanuvchining rollarini tekshirish
-        const hasRole = expectedRoles?.some((role) => userRoles.includes(role));
+        console.log(userRoles);
+        console.log(expectedRoles);
+        const hasRole = expectedRoles?.some((role) => userRoles.roles === role);
 
         this.logger.info(`User has role: ${expectedRoles}`);
 
         // Agar user roli topilmasa, xato va login sahifasiga yo'naltirish
-        if (userRoles.includes('null')) {
+        if (userRoles.roles === null) {
           this.toastr.warning('Foydalanuvchi roli topilmadi!', 'Xatolik');
-          this.router.navigate(['/auth/login']);
+          this.router.navigate(['/auth/register']);
           return false;
         }
 

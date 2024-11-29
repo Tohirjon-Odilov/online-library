@@ -5,12 +5,13 @@ import { catchError, finalize } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { LoggerService } from '../services/logger.service'; // Logger service import
 import { AuthService } from '../authentication/auth.service'; // Auth service import
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthInterceptor implements HttpInterceptor {
-  constructor(private authService: AuthService, private router: Router, private logger: LoggerService) {}
+  constructor(private authService: AuthService, private router: Router, private logger: LoggerService, private toaster: ToastrService) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     this.logger.info('HTTP request intercepted'); // Log HTTP request
@@ -23,21 +24,26 @@ export class AuthInterceptor implements HttpInterceptor {
     if (token) {
       req = req.clone({
         setHeaders: {
-          Authorization: `Bearer ${token}`, // Tokenni qo'shish
+          Authorization: `${token}`, // Tokenni qo'shish
         },
       });
     }
 
     // So'rovni jo'natishda log qilish va xatolarni boshqarish
     return next.handle(req).pipe(
+      // Xatolarni boshqarish
       catchError((error: HttpErrorResponse) => {
         // Agar foydalanuvchi avtorizatsiya qilinmagan bo'lsa (401 yoki 403)
         if (error.status === 401 || error.status === 403) {
           this.logger.warn('Unauthorized or Forbidden - redirecting to login'); // Log qilish
-          this.router.navigate(['/auth/login']); // Login sahifasiga yo'naltirish
+          // this.router.navigate(['/auth/login']); // Login sahifasiga yo'naltirish
+          this.toaster.error('Foydalanuvchi email yoki parol noto`g`ri!', 'Xatolik');
+        }else if(error.status === 404){
+          this.toaster.error("Foydalanuvchi topilmadi!", "Xatolik");
+        }else{
+          this.toaster.error(error.message, "Xatolik");
         }
-
-        this.logger.error(`HTTP Error: ${error.message}`); // Xatoni log qilish
+        this.logger.error(`HTTP Error: ${error}`); // Xatoni log qilish
         return throwError(error); // Xatoni qayta jo'natish
       }),
       finalize(() => {

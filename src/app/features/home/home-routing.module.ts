@@ -18,6 +18,8 @@ const routes: Routes = [
   },
   {
     path: "profile",
+    canActivate: [AuthGuard, RoleGuard], // HomeComponent ni AuthGuard va RoleGuard orqali himoya qilish
+    data: { roles: ['user', 'admin'] }, // Foydalanuvchi ro'lini tekshirish
     component: ProfileComponent
   },
   {
@@ -26,6 +28,8 @@ const routes: Routes = [
   },
   {
     path: 'book-detail',
+    canActivate: [AuthGuard, RoleGuard], // HomeComponent ni AuthGuard va RoleGuard orqali himoya qilish
+    data: { roles: ['user', 'admin'] }, // Foydalanuvchi ro'lini tekshirish
     component: BookDetailComponent
   },
   {

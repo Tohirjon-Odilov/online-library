@@ -6,18 +6,21 @@ import { catchError, tap } from 'rxjs/operators';
 import { API_URLS, ROLES } from '../../config/constants'; // constants.ts dan import qilish
 import { LoggerService } from '../services/logger.service';
 import { RegisterDTO } from '../models/register.model';
+import { jwtDecode } from 'jwt-decode';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private rolesSubject: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]); // Ro‘llarni kuzatish uchun BehaviorSubject
+  private rolesSubject: BehaviorSubject<any> = new BehaviorSubject<any>([]); // Ro‘llarni kuzatish uchun BehaviorSubject
   // private currentUserSubject: BehaviorSubject<any>;
   // public currentUser: Observable<any>;
   constructor(
     private http: HttpClient,
     private router: Router,
-    private logger: LoggerService
+    private logger: LoggerService,
+    private toaster: ToastrService
   ) {
     // BehaviorSubject'dan foydalanuvchini olish
     // this.currentUserSubject = new BehaviorSubject<any>(JSON.parse(localStorage.getItem('userData') || '{}'));
@@ -35,10 +38,12 @@ export class AuthService {
     return this.http.post<any>(API_URLS.LOGIN_URL, data).pipe(  // constants.ts dan URL olindi
       tap(user => {
         if (user && user.token) {
+          console.log(user);
           // Foydalanuvchini localStorage va BehaviorSubject'da saqlash
           localStorage.setItem('userData', JSON.stringify(user)); // Ma'lumotlarni saqlash
-          const [roles, token] = this.getRolesFromUser(user.is_designer ? ROLES.ADMIN : ROLES.USER, user.token); // Ro‘llarni olish
-          this.rolesSubject.next([roles]); // Ro‘llarni yangilash
+          // const [roles, token] = this.getRolesFromUser(user.Role === "Admin" ? ROLES.ADMIN : ROLES.USER, user.token); // Ro‘llarni olish
+          // this.rolesSubject.next([roles]); // Ro‘llarni yangilash
+          console.log(this.rolesSubject)
         }
       }),
       catchError(this.handleError) // Xatolarni boshqarish
@@ -65,7 +70,7 @@ export class AuthService {
     // localStorage'dan foydalanuvchini o'chirish va BehaviorSubject'da ro‘llarni yangilash
     localStorage.removeItem('userData'); // Ma'lumotlarni o'chirish
     this.rolesSubject.next([]); // Ro‘llarni bo'shatish
-    this.router.navigate(['/auth/login']); // Login sahifasiga yo‘naltirish
+    this.router.navigate(['/auth/register']); // Login sahifasiga yo‘naltirish
   }
 
     // Avtorizatsiya tekshiruvini bu yerda amalga oshiramiz
@@ -76,7 +81,7 @@ export class AuthService {
     }
 
   // Foydalanuvchining rollarini kuzatish (Observable orqali)
-  getUserRoles(): Observable<string[]> {
+  getUserRoles(): Observable<any> {
     return this.rolesSubject.asObservable(); // Observable orqali ro‘llarni kuzatish
   }
 
@@ -87,11 +92,17 @@ export class AuthService {
 
   // Foydalanuvchi rollarini localStorage'dan olish
   private getStoredUserRoles(): string[] | null {
+
     try {
-      const userData = JSON.parse(localStorage.getItem('userData') as string); // LocalStorage'dan ma'lumot olish
-      return this.getRolesFromUser(userData.is_designer ? ROLES.ADMIN : ROLES.USER, userData.token); // Ro‘llarni user ma'lumotidan olish
+      const userData = JSON.parse(localStorage.getItem('userData') as string);
+
+      var role: any = jwtDecode(userData.token);
+console.log(userData.token)
+      return this.getRolesFromUser(role.Role == 'Admin' ? ROLES.ADMIN : ROLES.USER, userData.token);
     } catch (error) {
-      return null; // Agar xato bo'lsa, null qaytarish
+      console.error('Error parsing user data:', error);
+      this.toaster.info('Foydalanuvchi oldin ro\'yhatdan o\'tgan bo\'lishi kerak!', 'Info');
+      return null;
     }
   }
 
