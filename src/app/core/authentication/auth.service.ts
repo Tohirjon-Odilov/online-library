@@ -95,9 +95,10 @@ export class AuthService {
 
     try {
       const userData = JSON.parse(localStorage.getItem('userData') as string);
-
+      
       var role: any = jwtDecode(userData.token);
 console.log(userData.token)
+console.log(role)
       return this.getRolesFromUser(role.Role == 'Admin' ? ROLES.ADMIN : ROLES.USER, userData.token);
     } catch (error) {
       console.error('Error parsing user data:', error);

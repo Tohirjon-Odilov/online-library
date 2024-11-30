@@ -31,7 +31,7 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     // Misol uchun bu yerda foydalanuvchini avtorizatsiya holatini tekshirish kerak
     const data = this.authService.isAuthenticated(); // Haqiqiy avtorizatsiya tekshiruvi bo'lishi kerak
     // this.logger.info(`Is user authenticated: ${data}`);
-    // console.log(data);
+    console.log(data);
     if (data) {
       this.logger.info('User is authenticated'); // Logger xizmati orqali kuzatish
       return true;

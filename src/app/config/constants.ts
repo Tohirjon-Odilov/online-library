@@ -16,6 +16,9 @@ export const API_URLS = {
   CHANGE_EMAIL_URL: BASE_URL + '/change-email',
   CHANGE_PASSWORD_URL: BASE_URL + '/change-password',
 
+  // Country
+  COUNTRIES: BASE_URL + '/countries',
+
   //
   USERS: BASE_URL +'/users',
 };
