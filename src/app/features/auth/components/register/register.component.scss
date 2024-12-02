@@ -73,6 +73,38 @@ body {
   margin: 1rem 0;
 }
 
+.select{
+  // width: 100%;
+  // padding: 1rem 3rem;
+  // font-size: 1rem;
+  // background-color: var(--gray);
+  // border-radius: .5rem;
+  // border: 0.125rem solid var(--white);
+  // outline: none;
+  background-color: var(--gray);
+  padding-right: 1rem;
+  
+  select{
+    width: 100%;
+    padding: 1rem 3rem;
+    font-size: 1rem;
+    border-radius: .5rem;
+    border: none;
+    // border: 0.125rem solid var(--white);
+    outline: none;
+
+    option{
+      width: 100%;
+      padding: 1rem 3rem;
+      font-size: 1rem;
+      background-color: var(--gray);
+      border-radius: .5rem;
+      border: 0.125rem solid var(--white);
+      outline: none;
+    }
+  }
+}
+
 .error{
   color: red;
   font-size: .8rem;
@@ -190,6 +222,29 @@ body {
 
 .pointer {
   cursor: pointer;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+input.ng-invalid.ng-touched,
+select.ng-invalid.ng-touched {
+  border-color: red;
+}
+
+// changetop 7
+.changeTop, 
+.changeTop1, 
+.changeTop2,
+.changeTop3,
+.changeTop4,
+.changeTop5,
+.changeTop6,
+.changeTop7 {
+  top: 37% !important;
 }
 
 .container.sign-in .form.sign-in,

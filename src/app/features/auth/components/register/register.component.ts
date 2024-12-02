@@ -3,6 +3,7 @@ import { RegisterDTO } from '../../../../core/models/register.model';
 import { AuthService } from '../../../../core/authentication/auth.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+import { CountryService } from '../../../home/services/country.service';
 
 @Component({
   selector: 'app-form',
@@ -13,12 +14,17 @@ export class RegisterComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private toaster: ToastrService,
-    private router: Router
+    private router: Router,
+    private countries: CountryService
   ) {}
   
   isSignIn: boolean = true;
+  countriesList: any[] = [];
   
   ngOnInit(): void {
+    this.countries.getAllCountries().subscribe((response) => {
+      this.countriesList = response; 
+    })
     setTimeout(() => {
       this.isSignIn = true;
     }, 200);
@@ -42,6 +48,8 @@ export class RegisterComponent implements OnInit {
     picture: undefined
   };
 
+  confirmPassword: any = '';
+
   errorMessage = '';
 
 
@@ -55,6 +63,13 @@ export class RegisterComponent implements OnInit {
   register(): void {
     this.authService.registerUser(this.registerData).subscribe(
       (response) => {
+        const person = {
+          count: "1",
+          countryId: this.registerData.country_id
+        };
+        
+        this.countries.addPersonCountry(person).subscribe();
+        
         console.log('Foydalanuvchi muvaffaqiyatli ro\'yxatdan o\'tdi:', response);
         this.toggle();
         this.toaster.success('Ro\'yxatdan muvaffaqiyatli o\'tdingiz.', 'Muvaffaqiyat');
@@ -67,7 +82,6 @@ export class RegisterComponent implements OnInit {
           this.toaster.error('Xatolik mavjud!', 'Xatolik');
           this.errorMessage = error.error.title;
         }
-        
         console.dir(error);
       }
     );

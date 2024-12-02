@@ -96,10 +96,13 @@ export class AuthService {
     try {
       const userData = JSON.parse(localStorage.getItem('userData') as string);
       
-      var role: any = jwtDecode(userData.token);
-console.log(userData.token)
-console.log(role)
-      return this.getRolesFromUser(role.Role == 'Admin' ? ROLES.ADMIN : ROLES.USER, userData.token);
+      if(userData != null){
+        var role: any = jwtDecode(userData.token);
+        console.log(userData.token)
+        console.log(role)
+        return this.getRolesFromUser(role.Role == 'Admin' ? ROLES.ADMIN : ROLES.USER, userData.token);
+      }
+      return null;
     } catch (error) {
       console.error('Error parsing user data:', error);
       this.toaster.info('Foydalanuvchi oldin ro\'yhatdan o\'tgan bo\'lishi kerak!', 'Info');

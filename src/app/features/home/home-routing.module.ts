@@ -33,6 +33,7 @@ const routes: Routes = [
     component: BookDetailComponent
   },
   {
+
     path: 'all-authors',
     component: AllAuthorsComponent
   },
