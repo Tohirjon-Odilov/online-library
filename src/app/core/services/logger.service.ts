@@ -8,31 +8,35 @@ export class LoggerService {
 
   constructor() { }
 
+  parsToString(obj: any): string {
+    return JSON.stringify(obj, null, 2);
+  }
+
   log(message: string) {
     if (!environment.production) {
-      console.log(`[Log]: ${message}`);
+      console.log(`[Log]: ${this.parsToString(message)}`);
     }
   }
 
   warn(message: string) {
     if (!environment.production) {
-      console.warn(`[Warning]: ${message}`);
+      console.warn(`[Warning]: ${this.parsToString(message)}`);
     }
   }
 
   error(message: string) {
-    console.error(`[Error]: ${message}`);  // Xatolarni har doim ko'rsatish
+    console.error(`[Error]: ${this.parsToString(message)}`);  // Xatolarni har doim ko'rsatish
   }
 
   info(message: string) {
     if (!environment.production) {
-      console.info(`[Info]: ${message}`);
+      console.info(`[Info]: ${this.parsToString(message)}`);
     }
   }
 
   debug(message: string) {
     if (!environment.production) {
-      console.debug(`[Debug]: ${message}`);
+      console.debug(`[Debug]: ${this.parsToString(message)}`);
     }
   }
 }

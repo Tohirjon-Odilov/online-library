@@ -27,6 +27,12 @@ export class AuthService {
     // this.currentUser = this.currentUserSubject.asObservable();
 
     // Ro‘llarni localStorage'dan yuklash, agar mavjud bo'lsa
+    var role: any = jwtDecode(localStorage.getItem('userData') as string);
+
+    role = role.Role == 'Admin' ? ROLES.ADMIN : ROLES.USER;
+
+    this.setUserRoles(role);
+    
     const storedRoles = this.getStoredUserRoles();
     if (storedRoles) {
       this.rolesSubject.next(storedRoles); // Ro‘llarni yangilash

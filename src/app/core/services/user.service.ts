@@ -12,16 +12,16 @@ export class UserService {
 
   getUsers(): Observable<any> {
     this.logger.info('Fetching all users'); // Logger orqali loglash
-    return this.http.get(API_URLS.USERS);
+    return this.http.get(API_URLS.USER);
   }
 
   getUserById(id: number): Observable<any> {
     this.logger.info(`Fetching user with id: ${id}`); // Logger orqali loglash
-    return this.http.get(`${API_URLS.USERS}/${id}`);
+    return this.http.get(`${API_URLS.USER}/${id}`);
   }
 
   updateUser(id: number, userData: any): Observable<any> {
     this.logger.info(`Updating user with id: ${id}`); // Logger orqali loglash
-    return this.http.put(`${API_URLS.USERS}/${id}`, userData);
+    return this.http.put(`${API_URLS.USER}/${id}`, userData);
   }
 }

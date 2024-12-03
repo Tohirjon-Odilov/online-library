@@ -3,12 +3,16 @@
   background-color: #ffffff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 0px 0;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
 }
 
 .header{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 
 /* Logo style */
@@ -108,7 +112,7 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   padding: 10px 0;
-  z-index: 1000;
+  z-index: 101;
   animation: fadeIn 0.3s ease;
 
   ul {

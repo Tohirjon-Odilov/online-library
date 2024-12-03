@@ -1,5 +1,5 @@
 <div class="all-books-container">
-  <h2>All Books</h2>
+  <h2>Barcha kitoblar</h2>
   <div class="book-cards">
     <div class="book-card" *ngFor="let book of books" [routerLink]="['/book-detail']">
       <img [src]="book.image" alt="{{ book.title }}" class="book-image" />

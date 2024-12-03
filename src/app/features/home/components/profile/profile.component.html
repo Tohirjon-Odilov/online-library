@@ -1,27 +1,40 @@
-<section class="profile-section">
+<section class="profile-section" >
   <div class="container">
-    <div class="profile-header">
-      <div class="profile-avatar">
-        <img src="../../../../../assets/imgs/avatar.png" alt="User Avatar" />
-      </div>
-      <div class="profile-info">
-        <h1>John Doe</h1>
-        <p class="bio">
-          Enthusiastic reader and book lover. Passionate about exploring new genres and authors.
-        </p>
-        <button class="edit-profile-btn">Edit Profile</button>
-      </div>
-    </div>
-
-    <div class="favorite-books">
-      <h2>Favorite Books</h2>
-      <div class="books-list">
-        <div class="book-card" *ngFor="let book of favoriteBooks" [routerLink]="['/book-detail']">
-          <img [src]="book.image" alt="Book Cover" class="book-cover" />
-          <h3>{{ book.title }}</h3>
-          <p>{{ book.author }}</p>
+    <ng-container *ngIf="user; else loading">      
+      <div class="profile-header">
+        <div class="profile-avatar">
+          <img [src]="userPicture" [alt]="user && user.full_name" />
+        </div>
+        <div class="profile-info">
+          <h1>{{user && user.full_name}}</h1>
+          <p class="bio">
+            <strong>Telefon raqam:</strong> {{user && user.phone_number}}
+            <br>
+            <strong>Email:</strong> {{user && user.email}}
+            <br>
+            <strong>Manzil:</strong> {{user && user.country.name}}
+            <br>
+            <strong>Ro'yhatdan o'tgan sana:</strong> {{user && user.created_at.split('T')[0]}} {{user && user.created_at.split('T')[1].split('.')[0]}}
+            <br>
+          </p>
+          <button class="edit-profile-btn">Edit Profile</button>
         </div>
       </div>
-    </div>
+      
+      <div class="favorite-books">
+        <h2>Favorite Books</h2>
+        <div class="books-list">
+          <div class="book-card" *ngFor="let book of favoriteBooks" [routerLink]="['/book-detail']">
+            <img [src]="book.image" alt="Book Cover" class="book-cover" />
+            <h3>{{ book.title }}</h3>
+            <p>{{ book.author }}</p>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+      
+      <ng-template #loading>
+        <p>Loading...</p>
+    </ng-template>
   </div>
 </section>

@@ -1,23 +1,39 @@
 <section class="categories-section">
   <div class="container">
-    <div class="categories-container">
-      <h1>All Categories</h1>
+    <div class="categories-container" *ngIf="categories; else loading">
+      <!-- <h1>Barcha kategoriyalar</h1> -->
       <div class="category-list">
         <div
           *ngFor="let category of categories"
           class="category-item"
-          (click)="toggleCategory(category)"
+          (click)="toggleCategory(category.books)"
           [class.selected]="selectedCategory === category"
         >
-          <p>{{ category }}</p>
+          <p>{{ category.name }}</p>
         </div>
       </div>
     
-      <div class="category-detail" *ngIf="selectedCategory">
+      <!-- <div class="category-detail" *ngIf="selectedCategory">
         <h2>{{ selectedCategory }} Details</h2>
         <p>Here are more details about the {{ selectedCategory }} category.</p>
+      </div> -->
+
+      <div class="category-detail favorite-books" *ngIf="selectedCategory">
+        <h2>Tanlangan kategoriyaga oid kitoblar</h2>
+        <div class="books-list">
+          <div class="book-card" *ngFor="let book of favoriteBooks" [routerLink]="['/book-detail']">
+            <img [src]="book.image" alt="Book Cover" class="book-cover" />
+            <h3>{{ book.title }}</h3>
+            <p>{{ book.author }}</p>
+          </div>
+        </div>
       </div>
+      
     </div>
-    
+
+    <ng-template #loading>
+      <p class="categories-container">Loading...</p>
+    </ng-template>
+
   </div>
 </section>

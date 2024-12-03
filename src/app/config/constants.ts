@@ -7,7 +7,7 @@ export const ROLES = {
   USER: 'user',
 };
 
-const BASE_URL = environment.baseUrl;
+const BASE_URL = environment.baseUrl+"/api";
 
 export const API_URLS = {
   // Auth URLs
@@ -19,8 +19,11 @@ export const API_URLS = {
   // Country
   COUNTRIES: BASE_URL + '/countries',
 
-  //
-  USERS: BASE_URL +'/users',
+  // Users
+  USER: BASE_URL +'/user',
+
+  // Categories
+  CATEGORIES: BASE_URL + '/Category',
 };
 
 export const STATUS_CODES = {

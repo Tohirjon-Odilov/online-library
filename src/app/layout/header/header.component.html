@@ -9,12 +9,12 @@
       <!-- Navigation menu with improved styles -->
       <nav class="header-nav">
         <ul class="header-list">
-          <li class="header-item" [routerLink]="['/']"><a href="javascript:void(0)">Home</a></li>
-          <li class="header-item"><a href="javascript:void(0)" (click)="jumpTo('books')" [routerLink]="['/all-books']">Books</a></li>
-          <li class="header-item" (click)="jumpTo('categories')" [routerLink]="['/all-categories']"><a href="javascript:void(0)">Categories</a></li>
+          <li class="header-item" [routerLink]="['/']"><a href="javascript:void(0)" (click)="jumpTo('intro')">Bosh sahifa</a></li>
+          <li class="header-item"><a href="javascript:void(0)" (click)="jumpTo('books')" [routerLink]="['/all-books']">Kitoblar</a></li>
+          <li class="header-item" (click)="jumpTo('categories')" [routerLink]="['/all-categories']"><a href="javascript:void(0)">Kategoriyalar</a></li>
           <!-- <li class="header-item" (click)="jumpTo('wishlist')"><a href="javascript:void(0)">Wishlist</a></li> -->
-          <li class="header-item"><a href="javascript:void(0) " (click)="jumpTo('aboutus')">About Us</a></li>
-          <li class="header-item"><a href="javascript:void(0)" (click)="showReportInfo()">Report</a></li>
+          <li class="header-item"><a href="javascript:void(0) " (click)="jumpTo('aboutus','/')" >Biz haqimizda</a></li>
+          <li class="header-item"><a href="javascript:void(0)" (click)="showReportInfo()">Xatolik bormi?</a></li>
         </ul>
       </nav>
 
@@ -22,17 +22,17 @@
       <div class="header-actions">
         <input class="search-input" type="search" placeholder="Kitob qidirish">
         <div class="icon-group">
-          <i class="fas fa-bookmark"></i>
+          <!-- <i class="fas fa-bookmark"></i> -->
           <i class="fas fa-user" (click)="toggleDropdown()"></i>
         </div>
+      </div>
+      <div class="dropdown-menu" *ngIf="isDropdownVisible">
+        <ul>
+          <li (click)="goToProfile()">Profil</li>
+          <li (click)="logout()">Chiqish</li>
+        </ul>
       </div>
     </div>
   </div>
 </header>
 
-<div class="dropdown-menu" *ngIf="isDropdownVisible">
-  <ul>
-    <li (click)="goToProfile()">Profile</li>
-    <li (click)="logout()">Logout</li>
-  </ul>
-</div>

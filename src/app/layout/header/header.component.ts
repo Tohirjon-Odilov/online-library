@@ -15,10 +15,22 @@ export class HeaderComponent {
     private auth: AuthService
   ) {}
 
-  jumpTo(section: string) {
-    const element = document.getElementById(section);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+  ngOnInit(): void {
+  }
+
+  jumpTo(section: string, event: any = "") {
+    if (event.includes("/")) {
+      this.router.navigate([event]).then(() => {
+        const element = document.getElementById(section);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    } else {
+      const element = document.getElementById(section);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   }
 
