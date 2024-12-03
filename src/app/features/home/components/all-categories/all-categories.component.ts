@@ -44,9 +44,12 @@ export class AllCategoriesComponent {
     { title: 'The Idiot', author: 'Fyodor Dostoevsky', image: '../../../../../assets/imgs/book3.png' }
   ];
   
-  selectedCategory: string | null = null;
+  selectedCategory: number | null = null;
+  selectedData: any | null = null;
 
-  toggleCategory(category: string): void {
-    this.selectedCategory = this.selectedCategory === category ? null : category;
+  toggleCategory(category: any): void {
+    this.selectedCategory = this.selectedCategory === category.id ? null : category.id;
+
+    this.selectedData = category.books
   }
 }

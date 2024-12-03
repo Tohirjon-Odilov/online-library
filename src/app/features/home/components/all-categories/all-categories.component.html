@@ -6,8 +6,8 @@
         <div
           *ngFor="let category of categories"
           class="category-item"
-          (click)="toggleCategory(category.books)"
-          [class.selected]="selectedCategory === category"
+          (click)="toggleCategory(category)"
+          [class.selected]="selectedCategory === category.id"
         >
           <p>{{ category.name }}</p>
         </div>
@@ -21,11 +21,17 @@
       <div class="category-detail favorite-books" *ngIf="selectedCategory">
         <h2>Tanlangan kategoriyaga oid kitoblar</h2>
         <div class="books-list">
-          <div class="book-card" *ngFor="let book of favoriteBooks" [routerLink]="['/book-detail']">
-            <img [src]="book.image" alt="Book Cover" class="book-cover" />
-            <h3>{{ book.title }}</h3>
-            <p>{{ book.author }}</p>
+          <ng-container *ngIf="selectedData != []; else loading">
+          <div class="book-card" *ngFor="let book of selectedData" [routerLink]="['/book-detail']">
+            <img [src]="'https://app.tohirjon.uz/'+book.picture_url" alt="Book Cover" class="book-cover" />
+            <h3>{{ book.name }}</h3>
+            <p>{{ book.description }}</p>
           </div>
+          </ng-container>
+
+          <ng-template #loading>
+            <p class="">Hozircha kitoblar qo'shilmagan!</p>
+          </ng-template>
         </div>
       </div>
       

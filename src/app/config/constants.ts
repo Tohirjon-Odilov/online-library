@@ -23,7 +23,7 @@ export const API_URLS = {
   USER: BASE_URL +'/user',
 
   // Categories
-  CATEGORIES: BASE_URL + '/Category',
+  CATEGORIES: BASE_URL + '/categories',
 };
 
 export const STATUS_CODES = {

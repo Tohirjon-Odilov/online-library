@@ -49,9 +49,7 @@ export class RegisterComponent implements OnInit {
   };
 
   confirmPassword: any = '';
-
   errorMessage = '';
-
 
   onFileSelected(event: any): void {
     const file = event.target.files[0];
