@@ -93,7 +93,8 @@ export class RegisterComponent implements OnInit {
         console.log('Foydalanuvchi muvaffaqiyatli tizimga kirdi:', response);
         // this.toggle();
         this.toaster.success('Muvaffaqiyatli tizimga kirdingiz.', 'Muvaffaqiyat');
-        this.router.navigate(['/']);
+        // this.router.navigate(['/']);
+        window.location.href = '/';
       },
       (error) => {
         console.error(error);

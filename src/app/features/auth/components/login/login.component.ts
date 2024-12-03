@@ -57,10 +57,11 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('userData', JSON.stringify(userData));
 
           // Foydalanuvchi roliga ko'ra yo'naltirish
+          // window.location.href = '/';
           if (data.is_designer) {
-            this.router.navigate(['/']);
+            // this.router.navigate(['/']); refresh
           } else if (data.is_director) {
-            this.router.navigate(['/']);
+            // this.router.navigate(['/']);
           }
 
           this.toaster.success("Xush kelibsiz.", `Tasdiqlandi`);
