@@ -7,7 +7,7 @@ import { API_URLS, ROLES } from '../../config/constants'; // constants.ts dan im
 import { LoggerService } from '../services/logger.service';
 import { RegisterDTO } from '../models/register.model';
 import { jwtDecode } from 'jwt-decode';
-import { ToastrService } from 'ngx-toastr';
+// import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +20,7 @@ export class AuthService {
     private http: HttpClient,
     private router: Router,
     private logger: LoggerService,
-    private toaster: ToastrService
+    // private toaster: ToastrService
   ) {
     // BehaviorSubject'dan foydalanuvchini olish
     // this.currentUserSubject = new BehaviorSubject<any>(JSON.parse(localStorage.getItem('userData') || '{}'));
@@ -112,7 +112,7 @@ export class AuthService {
       return new Array<string>();
     } catch (error) {
       console.error('Error parsing user data:', error);
-      this.toaster.info('Foydalanuvchi oldin ro\'yhatdan o\'tgan bo\'lishi kerak!', 'Info');
+      // this.toaster.info('Foydalanuvchi oldin ro\'yhatdan o\'tgan bo\'lishi kerak!', 'Info');
       return new Array<string>();
     }
   }

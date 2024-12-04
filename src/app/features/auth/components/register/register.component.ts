@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RegisterDTO } from '../../../../core/models/register.model';
 import { AuthService } from '../../../../core/authentication/auth.service';
-import { ToastrService } from 'ngx-toastr';
+// import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { CountryService } from '../../../home/services/country.service';
 
@@ -13,7 +13,7 @@ import { CountryService } from '../../../home/services/country.service';
 export class RegisterComponent implements OnInit {
   constructor(
     private authService: AuthService,
-    private toaster: ToastrService,
+    // private toaster: ToastrService,
     private router: Router,
     private countries: CountryService
   ) {}
@@ -70,14 +70,17 @@ export class RegisterComponent implements OnInit {
         
         console.log('Foydalanuvchi muvaffaqiyatli ro\'yxatdan o\'tdi:', response);
         this.toggle();
-        this.toaster.success('Ro\'yxatdan muvaffaqiyatli o\'tdingiz.', 'Muvaffaqiyat');
+        // this.toaster.success('Ro\'yxatdan muvaffaqiyatli o\'tdingiz.', 'Muvaffaqiyat');
+        console.log("Ro'yxatdan muvaffaqiyatli o'tdingiz.");
       },
       (error) => {
         if(error.status === 409){
-          this.toaster.error('Email orqali oldin ro`yhatdan o`tilgan!', 'Xatolik');
+          // this.toaster.error('Email orqali oldin ro`yhatdan o`tilgan!', 'Xatolik');
+          console.log('Email orqali oldin ro`yhatdan o`tilgan!');
           this.errorMessage = "Email orqali oldin ro`yhatdan o`tilgan!";
         }else{
-          this.toaster.error('Xatolik mavjud!', 'Xatolik');
+          // this.toaster.error('Xatolik mavjud!', 'Xatolik');
+          console.log('Xatolik mavjud!');
           this.errorMessage = error.error.title;
         }
         console.dir(error);
@@ -90,7 +93,8 @@ export class RegisterComponent implements OnInit {
       (response) => {
         console.log('Foydalanuvchi muvaffaqiyatli tizimga kirdi:', response);
         // this.toggle();
-        this.toaster.success('Muvaffaqiyatli tizimga kirdingiz.', 'Muvaffaqiyat');
+        // this.toaster.success('Muvaffaqiyatli tizimga kirdingiz.', 'Muvaffaqiyat');
+        console.log("Muvaffaqiyatli tizimga kirdingiz.");
         // this.router.navigate(['/']);
         window.location.href = '/';
       },

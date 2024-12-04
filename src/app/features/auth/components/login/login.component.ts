@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
+// import { ToastrService } from 'ngx-toastr';
 // import { AuthService } from '../../services/auth.service';
 // import jwtDecode from 'jwt-decode';
 import { AuthService } from '../../../../core/authentication/auth.service';
@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder, 
     private authService: AuthService,
     private router: Router,
-    private toaster: ToastrService,
+    // private toaster: ToastrService,
     // private cookieService: CookieService,
   ) {
     localStorage.clear(); // Har safar login sahifasiga kelinganda localStorage tozalanadi
@@ -34,7 +34,8 @@ export class LoginComponent implements OnInit {
 
   onSubmit(): void {
     if (!navigator.onLine) {
-      this.toaster.error('Siz internetga ulanmagansiz!', 'Tarmoq xatosi');
+      // this.toaster.error('Siz internetga ulanmagansiz!', 'Tarmoq xatosi');
+      alert('Siz internetga ulanmagansiz!');
       return; // Internet yo'q bo'lsa, jarayonni to'xtatish
     }
     
@@ -64,13 +65,16 @@ export class LoginComponent implements OnInit {
             // this.router.navigate(['/']);
           }
 
-          this.toaster.success("Xush kelibsiz.", `Tasdiqlandi`);
+          // this.toaster.success("Xush kelibsiz.", `Tasdiqlandi`);
+          console.log("Tasdiqlandi");
         },
         error: (err) => {
           if (err.status === 401) {
-            this.toaster.error("Foydalanuvchi nomi yoki parol noto'g'ri.", "Xatolik");
+            // this.toaster.error("Foydalanuvchi nomi yoki parol noto'g'ri.", "Xatolik");
+            console.log("Foydalanuvchi nomi yoki parol noto'g'ri.");
           } else {
-            this.toaster.error(err.message, "Error");
+            // this.toaster.error(err.message, "Error");
+            console.log(err.message);
           }
         },
       });

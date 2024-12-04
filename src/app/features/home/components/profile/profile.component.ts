@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ToastrService } from 'ngx-toastr';
+// import { ToastrService } from 'ngx-toastr';
 import { LoggerService } from '../../../../core/services/logger.service';
 import { UserService } from '../../../../core/services/user.service';
 import { jwtDecode } from 'jwt-decode';
@@ -15,7 +15,7 @@ export class ProfileComponent {
 
   constructor(
     private profileService: UserService,
-    private toaster: ToastrService,
+    // private toaster: ToastrService,
     private logger: LoggerService
   ) { }
   
@@ -45,7 +45,8 @@ export class ProfileComponent {
       },
       (error) => {
         this.logger.error(error);
-        this.toaster.error('Error fetching profile data');
+        // this.toaster.error('Error fetching profile data');
+        console.log('Error fetching profile data');
       }
     );
   }
