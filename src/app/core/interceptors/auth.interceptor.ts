@@ -43,7 +43,8 @@ export class AuthInterceptor implements HttpInterceptor {
         }else{
           // this.toaster.error(error.message, "Xatolik");
         }
-        this.logger.error(`HTTP Error: ${error}`); // Xatoni log qilish
+        // this.logger.error(`HTTP Error: ${error}`); // Xatoni log qilish
+        console.log(error);
         return throwError(error); // Xatoni qayta jo'natish
       }),
       finalize(() => {

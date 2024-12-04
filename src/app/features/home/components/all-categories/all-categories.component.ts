@@ -11,7 +11,7 @@ import { CategoryService } from '../../services/category.service';
 export class AllCategoriesComponent {
   
   constructor(
-    private logger: LoggerService,
+    // private logger: LoggerService,
     private router: Router,
     private categoriesService: CategoryService
   ) { }
@@ -33,7 +33,8 @@ export class AllCategoriesComponent {
         this.categories = categories;
       },
       (error) => {
-        this.logger.error(error);
+        // this.logger.error(error);
+        console.log(error);
       }
     );
   }

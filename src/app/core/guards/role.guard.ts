@@ -15,7 +15,9 @@ import { LoggerService } from '../services/logger.service';
   providedIn: 'root',
 })
 export class RoleGuard implements CanActivate {
-  constructor(private authService: AuthService, private router: Router, 
+  constructor(
+    private authService: AuthService, 
+    private router: Router, 
     // private toastr: ToastrService, 
     private logger: LoggerService) {}
 

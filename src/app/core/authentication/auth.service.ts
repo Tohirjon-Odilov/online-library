@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { Observable, BehaviorSubject, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { API_URLS, ROLES } from '../../config/constants'; // constants.ts dan import qilish
-import { LoggerService } from '../services/logger.service';
+// import { LoggerService } from '../services/logger.service';
 import { RegisterDTO } from '../models/register.model';
 import { jwtDecode } from 'jwt-decode';
 // import { ToastrService } from 'ngx-toastr';
@@ -19,7 +19,7 @@ export class AuthService {
   constructor(
     private http: HttpClient,
     private router: Router,
-    private logger: LoggerService,
+    // private logger: LoggerService,
     // private toaster: ToastrService
   ) {
     // BehaviorSubject'dan foydalanuvchini olish
@@ -27,9 +27,19 @@ export class AuthService {
     // this.currentUser = this.currentUserSubject.asObservable();
 
     // Ro‘llarni localStorage'dan yuklash, agar mavjud bo'lsa
-    var role: any = jwtDecode(localStorage.getItem('userData') as string);
+    var role: any
+    
+    try{
+      role = jwtDecode(localStorage.getItem('userData') as string);
+      role = role.Role == 'Admin' ? ROLES.ADMIN : ROLES.USER;
+    }catch(e){
 
-    role = role.Role == 'Admin' ? ROLES.ADMIN : ROLES.USER;
+      console.log(e)
+    }
+    
+
+
+
 
     this.setUserRoles(role);
     
@@ -83,6 +93,7 @@ export class AuthService {
     public isAuthenticated(): any {
       // const user = this.currentUserSubject.value;
       // this.logger.info(user);
+      console.log(this.getStoredUserRoles())
 
       return this.getStoredUserRoles();
     }

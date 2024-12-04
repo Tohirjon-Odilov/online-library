@@ -15,11 +15,11 @@ export class AppComponent implements OnInit {
   constructor(
     private translate: TranslateService,
     public themeService: ThemeService,
-    private logger: LoggerService
+    // private logger: LoggerService
   ) {
     // Qo'llab-quvvatlanadigan tillar
-    this.translate.addLangs(['en', 'ru', 'uz']);
-    this.translate.setDefaultLang('en');
+    // this.translate.addLangs(['en', 'ru', 'uz']);
+    // this.translate.setDefaultLang('en');
   }
 
   ngOnInit() {
