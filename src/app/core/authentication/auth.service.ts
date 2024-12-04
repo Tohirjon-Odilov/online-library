@@ -93,6 +93,14 @@ export class AuthService {
     public isAuthenticated(): any {
       // const user = this.currentUserSubject.value;
       // this.logger.info(user);
+      // if(!this.getStoredUserRoles()){
+      //   return false;
+      // }
+
+      if(this.getStoredUserRoles().length == 0){
+        return false;
+      }
+      
       console.log(this.getStoredUserRoles())
 
       return this.getStoredUserRoles();
