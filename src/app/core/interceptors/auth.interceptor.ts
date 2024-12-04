@@ -5,20 +5,20 @@ import { catchError, finalize } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { LoggerService } from '../services/logger.service'; // Logger service import
 import { AuthService } from '../authentication/auth.service'; // Auth service import
-import { ToastrService } from 'ngx-toastr';
+// import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthInterceptor implements HttpInterceptor {
-  constructor(private authService: AuthService, private router: Router, private logger: LoggerService, private toaster: ToastrService) {}
+  constructor(private authService: AuthService, private router: Router, private logger: LoggerService) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     this.logger.info('HTTP request intercepted'); // Log HTTP request
     
     // Tokenni localStorage ichidan userData kalitidan olish
-    const userData = JSON.parse(localStorage.getItem('userData') || '{}');
-    const token = userData.token; // Tokenni userData'dan chiqarib olish
+    // const userData = JSON.parse(localStorage.getItem('userData') || '{}');
+    const token = this.authService.getToken(); // Tokenni userData'dan chiqarib olish
 
     // Agar token mavjud bo'lsa, so'rovga Authorization headerini qo'shish
     if (token) {
@@ -37,11 +37,11 @@ export class AuthInterceptor implements HttpInterceptor {
         if (error.status === 401 || error.status === 403) {
           this.logger.warn('Unauthorized or Forbidden - redirecting to login'); // Log qilish
           // this.router.navigate(['/auth/login']); // Login sahifasiga yo'naltirish
-          this.toaster.error('Foydalanuvchi email yoki parol noto`g`ri!', 'Xatolik');
+          // this.toaster.error('Foydalanuvchi email yoki parol noto`g`ri!', 'Xatolik');
         }else if(error.status === 404){
-          this.toaster.error("Foydalanuvchi topilmadi!", "Xatolik");
+          // this.toaster.error("Foydalanuvchi topilmadi!", "Xatolik");
         }else{
-          this.toaster.error(error.message, "Xatolik");
+          // this.toaster.error(error.message, "Xatolik");
         }
         this.logger.error(`HTTP Error: ${error}`); // Xatoni log qilish
         return throwError(error); // Xatoni qayta jo'natish

@@ -83,6 +83,7 @@ export class AuthService {
     public isAuthenticated(): any {
       // const user = this.currentUserSubject.value;
       // this.logger.info(user);
+
       return this.getStoredUserRoles();
     }
 
@@ -97,7 +98,7 @@ export class AuthService {
   }
 
   // Foydalanuvchi rollarini localStorage'dan olish
-  private getStoredUserRoles(): string[] | null {
+  private getStoredUserRoles(): string[] {
 
     try {
       const userData = JSON.parse(localStorage.getItem('userData') as string);
@@ -108,11 +109,11 @@ export class AuthService {
         console.log(role)
         return this.getRolesFromUser(role.Role == 'Admin' ? ROLES.ADMIN : ROLES.USER, userData.token);
       }
-      return null;
+      return new Array<string>();
     } catch (error) {
       console.error('Error parsing user data:', error);
       this.toaster.info('Foydalanuvchi oldin ro\'yhatdan o\'tgan bo\'lishi kerak!', 'Info');
-      return null;
+      return new Array<string>();
     }
   }
 
@@ -136,5 +137,10 @@ export class AuthService {
       errorMessage = `Server xatosi: ${error.status}\nXabar: ${error.message}`;
     }
     return throwError(errorMessage); // Observable orqali xato qaytarish
+  }
+
+  getToken(): string | null {
+    const userData = JSON.parse(localStorage.getItem('userData') || '{}');
+    return userData?.token || null;
   }
 }
