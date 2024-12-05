@@ -44,21 +44,33 @@
         <h2>Kategoriyalar</h2>
         <ul class="intro-list">
           <li class="intro-item">
-            <img src="../../../../../assets/imgs/book1.png" alt="The Stranger">
+            <div class="img-wrapper random-image">
+              <ng-container *ngFor="let img of randomBook">
+                <img [src]="baseUrl+'/'+img.picture_url" alt="The Stranger">
+              </ng-container>
+            </div>
             <div>
               <h3>The Stranger</h3>
             <p>Albert Camus</p>
             </div>
           </li>
           <li class="intro-item">
-            <img src="../../../../../assets/imgs/book2.png" alt="Der Process">
+            <div class="img-wrapper img-wrapper-rev random-image">
+              <ng-container *ngFor="let img of randomBook2">
+                <img [src]="baseUrl+'/'+img.picture_url" alt="The Stranger" [routerLink]="['/all-books']">
+              </ng-container>
+            </div>
             <div>
               <h3>Der Process</h3>
             <p>Franz Kafka</p>
             </div>
           </li>
           <li class="intro-item">
-            <img src="../../../../../assets/imgs/book3.png" alt="Divine Comedy">
+            <div class="img-wrapper random-image">
+              <ng-container *ngFor="let img of randomBook3">
+                <img [src]="baseUrl+'/'+img.picture_url" alt="The Stranger">
+              </ng-container>
+            </div>
             <div>
               <h3>The Stranger</h3>
             <p>Albert Camus</p>

@@ -41,7 +41,7 @@
           <p *ngFor="let review of book.reviews">{{ review }}</p>
         </div>
         <div *ngIf="activeTab === 'readOnline'"class="read-online-tab">
-          <button (click)="openPdfViewer('')" class="pdf-open">Kattaroq ekranda o'qish</button>
+          <button (click)="openPdfViewer('')"  class="pdf-open">Kattaroq ekranda o'qish</button>
           <iframe [src]="sanitizer.bypassSecurityTrustResourceUrl('../../../../../assets/data/Vilyam-Shekspir-Hamlet-tragediya.pdf#toolbar=0&navpanes=0&scrollbar=0&zoom=150')"  width="100%" height="800px"></iframe>
         <!-- Fullscreen tugmasi -->
         <!-- <button (click)="openFullscreen()" class="btn-fullscreen">

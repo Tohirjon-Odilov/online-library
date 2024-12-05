@@ -24,6 +24,8 @@ export const API_URLS = {
 
   // Categories
   CATEGORIES: BASE_URL + '/categories',
+
+  RANDOM_BOOKS: BASE_URL + '/book/random',
 };
 
 export const STATUS_CODES = {
