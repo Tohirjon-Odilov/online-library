@@ -1,11 +1,10 @@
 <div class="all-books-container">
-  <h2>Barcha kitoblar</h2>
+  <h2>Saralangan kitoblar</h2>
   <div class="book-cards">
     <div class="book-card" *ngFor="let book of books" [routerLink]="['/book-detail']">
-      <img [src]="book.image" alt="{{ book.title }}" class="book-image" />
-      <h3>{{ book.title }}</h3>
-      <p>{{ book.author }}</p>
-      <p>${{ book.price }}</p>
+      <img [src]="baseUrl+'/'+book.picture_url" alt="{{ book.name }}" class="book-image" />
+      <h3>{{ book.name }}</h3>
+      <p>{{ book.type }}</p>
     </div>
   </div>
 </div>

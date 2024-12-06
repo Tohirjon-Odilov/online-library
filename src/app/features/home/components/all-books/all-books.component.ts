@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BookService } from '../../services/book.service';
+import { environment } from '../../../../../environments/environment';
 
 @Component({
   selector: 'app-all-books',
@@ -6,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./all-books.component.scss'],
 })
 export class AllBooksComponent implements OnInit {
-  books = [
+  books: any = [
     {
       title: 'The Stranger',
       author: 'Albert Camus',
@@ -34,8 +36,16 @@ export class AllBooksComponent implements OnInit {
     
     // Add more books as needed
   ];
+  baseUrl = environment.baseUrl
+
+  constructor(
+    private bookService: BookService
+  ) { }
 
   ngOnInit(): void {
+    this.bookService.getBooks().subscribe(res => {
+      this.books = res
+    })
     // You can load book data here from an API if necessary
   }
 }

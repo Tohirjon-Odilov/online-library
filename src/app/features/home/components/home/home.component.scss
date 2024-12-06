@@ -20,9 +20,10 @@
 }
 
 .intro-text h2 {
-  font-size: 80px;
+  font-size: 50px;
   line-height: 1.2;
   margin: 0;
+  margin-bottom: 10px;
   font-weight: bold;
 }
 
@@ -336,6 +337,11 @@
     width: 350px;
     height: 400px;
     object-fit: cover;
+
+    transition: transform 0.3s ease;
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 
   .author-info {

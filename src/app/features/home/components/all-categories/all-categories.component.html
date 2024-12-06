@@ -25,7 +25,7 @@
           <div class="book-card" *ngFor="let book of selectedData" [routerLink]="['/book-detail']">
             <img [src]="'https://app.tohirjon.uz/'+book.picture_url" alt="Book Cover" class="book-cover" />
             <h3>{{ book.name }}</h3>
-            <p>{{ book.description }}</p>
+            <p>{{ book.type }}</p>
           </div>
           </ng-container>
 
