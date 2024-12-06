@@ -25,6 +25,8 @@ export const API_URLS = {
   // Categories
   CATEGORIES: BASE_URL + '/categories',
 
+  // Books
+  ALL_BOOKS: BASE_URL + '/book',
   RANDOM_BOOKS: BASE_URL + '/book/random',
 };
 

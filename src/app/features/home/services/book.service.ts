@@ -16,4 +16,8 @@ export class BookService {
   getRandomBook(): Observable<any> {
     return this.httpClient.get(`${API_URLS.RANDOM_BOOKS}`);
   }
+
+  getBooks(): Observable<any> {
+    return this.httpClient.get(`${API_URLS.ALL_BOOKS}`);
+  }
 }
