@@ -1,10 +1,14 @@
-<div class="all-books-container">
-  <h2>Saralangan kitoblar</h2>
-  <div class="book-cards">
-    <div class="book-card" *ngFor="let book of books" [routerLink]="['/book-detail']">
-      <img [src]="baseUrl+'/'+book.picture_url" alt="{{ book.name }}" class="book-image" />
-      <h3>{{ book.name }}</h3>
-      <p>{{ book.type }}</p>
+<div class="container">
+
+  <div class="all-books-container">
+    <h2>Saralangan kitoblar</h2>
+    <div class="book-cards">
+      <div class="book-card" *ngFor="let book of books" [routerLink]="['/book-detail']">
+        <img [src]="baseUrl+'/'+book.picture_url" alt="{{ book.name }}" class="book-image" />
+        <h3>{{ book.name }}</h3>
+        <p>{{ book.type }}</p>
+      </div>
     </div>
   </div>
+  
 </div>
