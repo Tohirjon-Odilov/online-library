@@ -93,13 +93,13 @@
           <button 
             (click)="register()" 
             [disabled]="fullName.invalid || phoneNumber.invalid || email.invalid || countryId.invalid || password.invalid || confirmPassword.value !== registerData.password">
-            Sign up
+            Ro'yhatdan o'tish
           </button>
           <p>
             <span *ngIf="errorMessage" class="error">{{errorMessage}}</span>
             <br>
-            <span>Already have an account? </span>
-            <b (click)="toggle()" class="pointer"> Sign in here</b>
+            <span>Akkauntingiz bormi? </span>
+            <b (click)="toggle()" class="pointer">Kirish</b>
           </p>
         </div>
       </div>
@@ -127,7 +127,7 @@
             <i class='bx bxs-lock-alt' [ngClass]="{ 'changeTop7': loginPassword.invalid && loginPassword.touched }"></i>
             <input 
               type="password" 
-              placeholder="Password" 
+              placeholder="Parol" 
               [(ngModel)]="loginDTO.password" 
               name="password" 
               required 
@@ -140,12 +140,12 @@
           <button 
             (click)="login()" 
             [disabled]="loginEmail.invalid || loginPassword.invalid">
-            Sign in
+            Kirish
           </button>
-          <p><b>Forgot password?</b></p>
+          <!-- <p><b>Forgot password?</b></p> -->
           <p>
-            <span>Don't have an account? </span>
-            <b (click)="toggle()" class="pointer"> Sign up here</b>
+            <span>Akkauntingiz yo'qmi? </span>
+            <b (click)="toggle()" class="pointer">Ro'yhatdan o'ting!</b>
             <br>
             <br>
             <a [routerLink]="['/']">Bosh  sahifaga qaytish</a>
@@ -161,14 +161,14 @@
     <!-- SIGN IN CONTENT -->
     <div class="col align-items-center flex-col">
       <div class="text sign-in">
-        <h2>Welcome</h2>
+        <h2>Xush kelibsiz</h2>
       </div>
     </div>
     <!-- END SIGN IN CONTENT -->
     <!-- SIGN UP CONTENT -->
     <div class="col align-items-center flex-col">
       <div class="text sign-up">
-        <h2>Join with us</h2>
+        <h2>Bizga qo'shiling</h2>
       </div>
     </div>
     <!-- END SIGN UP CONTENT -->
