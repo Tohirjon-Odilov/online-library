@@ -24,4 +24,9 @@ export class UserService {
     this.logger.info(`Updating user with id: ${id}`); // Logger orqali loglash
     return this.http.put(`${API_URLS.USER}/${id}`, userData);
   }
+
+  addBookToUser(ids: any): Observable<any> {
+    // this.logger.info(`Adding book with id: ${bookId} to user with id: ${userId}`); // Logger orqali loglash
+    return this.http.post(`${API_URLS.USER_ADD_BOOK}`, ids);
+  }
 }

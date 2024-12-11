@@ -20,13 +20,14 @@ export class ProfileComponent {
   ) { }
   
   favoriteBooks = [
-    { title: 'The Stranger', author: 'Albert Camus', image: '../../../../../assets/imgs/book1.png' },
-    { title: 'Der Process', author: 'Franz Kafka', image: '../../../../../assets/imgs/book2.png' },
-    { title: 'The Idiot', author: 'Fyodor Dostoevsky', image: '../../../../../assets/imgs/book3.png' }
+    { name: 'The Stranger', author: 'Albert Camus', picture_url: '../../../../../assets/imgs/book1.png' },
+    { name: 'Der Process', author: 'Franz Kafka', picture_url: '../../../../../assets/imgs/book2.png' },
+    { name: 'The Idiot', author: 'Fyodor Dostoevsky', picture_url: '../../../../../assets/imgs/book3.png' }
   ];
 
   user: any;
   userPicture: string = "";
+  baseUrl = environment.baseUrl
 
   ngOnInit() {
     this.logger.log('ProfileComponent initialized');
@@ -36,9 +37,10 @@ export class ProfileComponent {
     this.profileService.getUserById(user.UserId).subscribe(
       (response) => {
         this.user = response
+        this.favoriteBooks = this.user.user_books
         this.logger.log(response);
         if(response.picture_url){
-          this.userPicture = environment.baseUrl + response.picture_url
+          this.userPicture = this.baseUrl + response.picture_url
         }else{
           this.userPicture = "../../../../../assets/imgs/avatar.png"
         }

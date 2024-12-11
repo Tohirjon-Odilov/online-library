@@ -18,6 +18,6 @@ export class BookService {
   }
 
   getBooks(): Observable<any> {
-    return this.httpClient.get(`${API_URLS.ALL_BOOKS}`);
+    return this.httpClient.get(`${API_URLS.ALL_BOOKS}?page=1&limit=10`);
   }
 }

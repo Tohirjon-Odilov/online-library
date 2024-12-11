@@ -32,7 +32,7 @@ export class HomeComponent {
     })
 
     this.bookService.getBooks().subscribe(res => {
-      this.topBooks = res.slice(0, 3);
+      this.topBooks = res.items.slice(0, 3);
     })
 
     this.categoryService.getCategories().subscribe(res => {

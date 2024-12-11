@@ -21,12 +21,13 @@ export const API_URLS = {
 
   // Users
   USER: BASE_URL +'/user',
+  USER_ADD_BOOK: BASE_URL + '/user/add-book',
 
   // Categories
   CATEGORIES: BASE_URL + '/categories',
 
   // Books
-  ALL_BOOKS: BASE_URL + '/book',
+  ALL_BOOKS: BASE_URL + '/books',
   RANDOM_BOOKS: BASE_URL + '/book/random',
 };
 

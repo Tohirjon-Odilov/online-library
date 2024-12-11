@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { BookService } from '../../services/book.service';
 import { environment } from '../../../../../environments/environment';
+import { UserService } from '../../../../core/services/user.service';
+import { jwtDecode } from 'jwt-decode';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-all-books',
@@ -38,14 +41,35 @@ export class AllBooksComponent implements OnInit {
   ];
   baseUrl = environment.baseUrl
 
+  userId: any
+
   constructor(
-    private bookService: BookService
+    private bookService: BookService,
+    private userService: UserService,
+    private toaster: ToastrService
   ) { }
 
   ngOnInit(): void {
     this.bookService.getBooks().subscribe(res => {
-      this.books = res
+      this.books = res.items
     })
-    // You can load book data here from an API if necessary
+
+    this.userId = jwtDecode(localStorage.getItem('userData') as string)
+    this.userId = +this.userId.UserId
+  }
+
+  addToFavorites(book: any): void {
+    const formData = new FormData();
+    formData.append('UserId', this.userId);
+    formData.append('BookId', book.id.toString());
+    
+    this.userService.addBookToUser(formData).subscribe(
+      (response) => {
+        this.toaster.success('Yoqgan kitoblarga muvaffaqiyatli qo\'shildi.', 'Muvaffaqiyat');
+      },
+      (error) => {
+        this.toaster.error('Allaqachon yoqgan kitoblarga qo\'shilgan!', 'Xatolik');
+      }
+    )
   }
 }
