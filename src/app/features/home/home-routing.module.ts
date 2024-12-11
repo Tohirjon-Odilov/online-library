@@ -8,6 +8,7 @@ import { AllBooksComponent } from './components/all-books/all-books.component';
 import { BookDetailComponent } from './components/book-detail/book-detail.component';
 import { AllAuthorsComponent } from './components/all-authors/all-authors.component';
 import { AllCategoriesComponent } from './components/all-categories/all-categories.component';
+import { AllInstituteLiteratureComponent } from './components/all-institute-literature/all-institute-literature.component';
 
 const routes: Routes = [
   {
@@ -40,6 +41,10 @@ const routes: Routes = [
   {
     path: 'all-categories',
     component: AllCategoriesComponent
+  },
+  {
+    path: 'all-institutes-literature',
+    component: AllInstituteLiteratureComponent
   },
   {
     path: '**',

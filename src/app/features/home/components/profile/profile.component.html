@@ -14,7 +14,7 @@
             <br>
             <strong>Manzil:</strong> {{user && user.country_name}}
             <br>
-            <strong>Ro'yhatdan o'tgan sana:</strong> {{user && user.created_at.split('T')[0]}} {{user && user.created_at.split('T')[1].split('.')[0]}}
+            <strong>Ro'yhatdan o'tgan sana:</strong> {{user && user.created_at.split('T')[0]}} {{user && createdAt}}
             <br>
           </p>
           <button class="edit-profile-btn">Edit Profile</button>

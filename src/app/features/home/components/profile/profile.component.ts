@@ -28,6 +28,8 @@ export class ProfileComponent {
   user: any;
   userPicture: string = "";
   baseUrl = environment.baseUrl
+  date = new Date();
+  createdAt: any
 
   ngOnInit() {
     this.logger.log('ProfileComponent initialized');
@@ -37,6 +39,7 @@ export class ProfileComponent {
     this.profileService.getUserById(user.UserId).subscribe(
       (response) => {
         this.user = response
+        this.date = new Date(this.user.created_at)
         this.favoriteBooks = this.user.user_books
         this.logger.log(response);
         if(response.picture_url){
@@ -51,5 +54,10 @@ export class ProfileComponent {
         console.log('Error fetching profile data');
       }
     );
+
+    this.date.setHours(this.date.getHours());
+    this.createdAt = this.date.toLocaleTimeString('uz-UZ', { hour12: false });
+    
+// const formattedDate = createdAt.toLocaleTimeString('en-GB', { hour12: false });
   }
 }

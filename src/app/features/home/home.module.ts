@@ -7,6 +7,7 @@ import { AllBooksComponent } from './components/all-books/all-books.component';
 import { BookDetailComponent } from './components/book-detail/book-detail.component';
 import { AllAuthorsComponent } from './components/all-authors/all-authors.component';
 import { AllCategoriesComponent } from './components/all-categories/all-categories.component';
+import { AllInstituteLiteratureComponent } from './components/all-institute-literature/all-institute-literature.component';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { AllCategoriesComponent } from './components/all-categories/all-categori
     BookDetailComponent,
     AllAuthorsComponent,
     AllCategoriesComponent,
+    AllInstituteLiteratureComponent,
   ],
   imports: [
     CommonModule,

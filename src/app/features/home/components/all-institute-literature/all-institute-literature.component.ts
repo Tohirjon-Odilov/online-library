@@ -1,14 +1,16 @@
-import { Component } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { LoggerService } from '../../../../core/services/logger.service';
 import { Router } from '@angular/router';
 import { CategoryService } from '../../services/category.service';
 
 @Component({
-  selector: 'app-all-categories',
-  templateUrl: './all-categories.component.html',
-  styleUrls: ['./all-categories.component.scss']
+  selector: 'app-all-institute-literature',
+  templateUrl: './all-institute-literature.component.html',
+  styleUrl: './all-institute-literature.component.scss'
 })
-export class AllCategoriesComponent {
+export class AllInstituteLiteratureComponent  implements AfterViewChecked{  
+  @ViewChild('book') book!: ElementRef;
+  categoryHeight: any;
   
   constructor(
     // private logger: LoggerService,
@@ -33,7 +35,7 @@ export class AllCategoriesComponent {
       (categories) => {
         this.categories = categories;
         this.categories.forEach(element => {
-          if(!element.is_institute_literature){
+          if(element.is_institute_literature){
             this.filterCategories.push(element)
           }
         });
@@ -44,6 +46,20 @@ export class AllCategoriesComponent {
     );
 
     console.log(this.filterCategories);
+  }
+
+  ngAfterViewChecked(): void {
+    
+    this.categoryHeight = this.book; // Elementning balandligi
+    console.log('Div height:', this.categoryHeight);
+
+  }
+
+  getHeight(): string {
+    this.categoryHeight = this.book.nativeElement.offsetHeight; // Elementning balandligi
+    console.log('Div height:', this.categoryHeight);
+
+    return this.categoryHeight + 'px';
   }
 
   favoriteBooks = [
