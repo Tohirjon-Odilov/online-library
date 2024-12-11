@@ -22,6 +22,7 @@ export const API_URLS = {
   // Users
   USER: BASE_URL +'/user',
   USER_ADD_BOOK: BASE_URL + '/user/add-book',
+  USER_REMOVE_BOOK: BASE_URL + '/user/remove-book',
 
   // Categories
   CATEGORIES: BASE_URL + '/categories',

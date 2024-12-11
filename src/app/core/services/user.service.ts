@@ -29,4 +29,9 @@ export class UserService {
     // this.logger.info(`Adding book with id: ${bookId} to user with id: ${userId}`); // Logger orqali loglash
     return this.http.post(`${API_URLS.USER_ADD_BOOK}`, ids);
   }
+
+  removeBookFromUser(ids: any): Observable<any> {
+    // this.logger.info(`Removing book with id: ${bookId} from user with id: ${userId}`); // Logger orqali loglash
+    return this.http.post(`${API_URLS.USER_REMOVE_BOOK}`, ids);
+  }
 }
