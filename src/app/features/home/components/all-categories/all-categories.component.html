@@ -1,32 +1,38 @@
 <section class="categories-section">
   <div class="container">
     <div class="categories-container" *ngIf="categories; else loading">
-      <!-- <h1>Barcha kategoriyalar</h1> -->
-      <div class="category-list">
-        <div
-          *ngFor="let category of filterCategories;"
-          class="category-item"
-          (click)="toggleCategory(category)"
-          [class.selected]="selectedCategory === category.id"
-        >
-          <p>{{ category.name }}</p>
+      <!-- Category List with Scrolling Animation -->
+      <div class="scrolling-category-list">
+        <div class="scrolling-wrapper">
+          <div
+            *ngFor="let category of filterCategories"
+            class="category-item"
+            (click)="toggleCategory(category)"
+            [class.selected]="selectedCategory === category.id"
+          >
+            <p>{{ category.name }}</p>
+          </div>
         </div>
       </div>
-    
-      <!-- <div class="category-detail" *ngIf="selectedCategory">
-        <h2>{{ selectedCategory }} Details</h2>
-        <p>Here are more details about the {{ selectedCategory }} category.</p>
-      </div> -->
 
+      <!-- Category Details -->
       <div class="category-detail favorite-books" *ngIf="selectedCategory">
         <h2>Tanlangan kategoriyaga oid kitoblar</h2>
         <div class="books-list">
           <ng-container *ngIf="selectedData && selectedData.length !== 0; else loading">
-          <div class="book-card" *ngFor="let book of selectedData" [routerLink]="['/book-detail']">
-            <img [src]="'https://app.tohirjon.uz/'+book.picture_url" alt="Book Cover" class="book-cover" />
-            <h3>{{ book.name }}</h3>
-            <p>{{ book.type }}</p>
-          </div>
+            <div
+              class="book-card"
+              *ngFor="let book of selectedData"
+              [routerLink]="['/book-detail']"
+            >
+              <img
+                [src]="'https://app.tohirjon.uz/' + book.picture_url"
+                alt="Book Cover"
+                class="book-cover"
+              />
+              <h3>{{ book.name }}</h3>
+              <p>{{ book.type }}</p>
+            </div>
           </ng-container>
 
           <ng-template #loading>
@@ -34,12 +40,10 @@
           </ng-template>
         </div>
       </div>
-      
     </div>
 
     <ng-template #loading>
       <p class="categories-container">Loading...</p>
     </ng-template>
-
   </div>
 </section>

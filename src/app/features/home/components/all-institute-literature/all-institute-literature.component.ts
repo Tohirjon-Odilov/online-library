@@ -5,8 +5,8 @@ import { CategoryService } from '../../services/category.service';
 
 @Component({
   selector: 'app-all-institute-literature',
-  templateUrl: './all-institute-literature.component.html',
-  styleUrl: './all-institute-literature.component.scss'
+  templateUrl: '../all-categories/all-categories.component.html',
+  styleUrl: '../all-categories/all-categories.component.scss'
 })
 export class AllInstituteLiteratureComponent  implements AfterViewChecked{  
   @ViewChild('book') book!: ElementRef;
