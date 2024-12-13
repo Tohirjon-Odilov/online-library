@@ -1,11 +1,18 @@
 /* Main container style */
 .site-main {
-  padding: 50px 0;
+  padding: 140px 0 50px;
+  background-image: url('../../../../../assets/imgs/1.jpg');
+  background-repeat: no-repeat;
+  background-position: 0px -30px;
+  background-size: contain;
 }
 
 .intro-section {
   padding: 50px 0;
-  background-color: #f9f9f9;
+  // background-color: #f9f9f9;
+  *{
+    color: white;
+  }
 }
 
 .intro {
