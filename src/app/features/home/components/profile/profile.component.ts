@@ -55,8 +55,9 @@ export class ProfileComponent {
       }
     );
 
-    this.date.setHours(this.date.getHours());
-    this.createdAt = this.date.toLocaleTimeString('uz-UZ', { hour12: false });
+    // this.date = this.user.created_at;
+    // this.createdAt = this.date
+    // this.createdAt = this.date.toLocaleTimeString('uz-UZ', { hour12: false });
     
 // const formattedDate = createdAt.toLocaleTimeString('en-GB', { hour12: false });
   }
