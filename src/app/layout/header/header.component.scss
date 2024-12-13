@@ -1,11 +1,12 @@
 /* Header container style */
 .site-header {
-  background-color: #ffffff;
+  // background-color: #ffffff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 0px 0;
   position: fixed;
   width: 100%;
   z-index: 1000;
+  backdrop-filter: blur(10000px);
 }
 
 .header{
@@ -25,6 +26,15 @@
   align-items: center;
   justify-content: center;
   gap: 5px;
+
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .logo-title{
+    font-size: 14px;
+  }
 }
 
 .logo span {
