@@ -24,10 +24,15 @@
       <div class="favorite-books">
         <h2>Yoqgan kitoblar</h2>
         <div class="books-list">
-          <div class="book-card" *ngFor="let book of favoriteBooks" [routerLink]="['/book-detail']">
-            <img [src]="baseUrl+'/'+book.picture_url" alt="Book Cover" class="book-cover" />
-            <h3>{{ book.name }}</h3>
-            <p>{{ book.author }}</p>
+          <div class="book-card" *ngFor="let book of favoriteBooks">
+            <div [routerLink]="['/book-detail']">
+                <img [src]="baseUrl+'/'+book.picture_url" alt="Book Cover" class="book-cover" />
+                <h3>{{ book.name }}</h3>
+                <p>{{ book.author }}</p>
+            </div>
+            <button (click)="removeFromFavorites($event, book)" class="favorite-button">
+              <i [class]="getIcon(book)"></i>
+            </button>
           </div>
         </div>
         <div class="color-red" *ngIf="favoriteBooks.length === 0">
