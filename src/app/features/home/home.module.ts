@@ -8,6 +8,7 @@ import { BookDetailComponent } from './components/book-detail/book-detail.compon
 import { AllAuthorsComponent } from './components/all-authors/all-authors.component';
 import { AllCategoriesComponent } from './components/all-categories/all-categories.component';
 import { AllInstituteLiteratureComponent } from './components/all-institute-literature/all-institute-literature.component';
+import { CarouselComponent } from './components/carusel/carusel.component';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { AllInstituteLiteratureComponent } from './components/all-institute-lite
     AllAuthorsComponent,
     AllCategoriesComponent,
     AllInstituteLiteratureComponent,
+    CarouselComponent,
   ],
   imports: [
     CommonModule,

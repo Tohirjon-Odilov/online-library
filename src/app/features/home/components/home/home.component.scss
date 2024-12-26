@@ -172,13 +172,6 @@
     position: relative;
   }
 
-  .position-center{
-    // position: absolute;
-    // top: 50%;
-    // left: 50%;
-    // transform: translate(-50%, -50%);
-  }
-
   .intro-list {
     gap: 50px;
   }
@@ -209,6 +202,63 @@
     }
   }
 }
+
+.offers-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+
+  /* Yuklanish animatsiyasi qo'shildi */
+  opacity: 0;
+  transform: translateY(50px);
+  animation: fadeIn 0.8s ease-out forwards;
+
+  h2 {
+    font-size: 40px;
+    align-self: flex-start;
+  }
+
+  .img-wrapper {
+    position: relative;
+
+    /* Hover animatsiyasi qo'shildi */
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+
+    img {
+      position: relative;
+      top: 0px;
+      width: 50% !important;
+      height: 240px;
+      margin-bottom: 0;
+      border-radius: 0 !important;
+
+      /* Hover uchun o'tish qo'shildi */
+      transition: transform 0.5s ease;
+    }
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+
+      img {
+        transform: scale(1.1);
+      }
+    }
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 
 .event-section {
   margin-top: 50px;

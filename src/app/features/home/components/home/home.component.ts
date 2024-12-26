@@ -47,4 +47,10 @@ export class HomeComponent {
    randomCategoryImage(imageArray: Array<any>): any {
     return shuffle(imageArray).slice(0, 3);
    }
+
+   carouselImages = [
+    'https://via.placeholder.com/800x300/FF5733/FFFFFF?text=Slide+1',
+    'https://via.placeholder.com/800x300/33FF57/FFFFFF?text=Slide+2',
+    'https://via.placeholder.com/800x300/5733FF/FFFFFF?text=Slide+3',
+  ];
 }
