@@ -27,12 +27,12 @@ body {
   overflow: hidden;
 }
 P
-.container {
+.container2 {
   position: relative;
   min-height: 100vh;
   overflow: hidden;
   margin: 0 auto;
-  max-width: 1536px !important;
+  width: 100%;
 }
 
 .row {
@@ -247,12 +247,12 @@ select.ng-invalid.ng-touched {
   top: 37% !important;
 }
 
-.container.sign-in .form.sign-in,
-.container.sign-in .social-list.sign-in,
-.container.sign-in .social-list.sign-in>div,
-.container.sign-up .form.sign-up,
-.container.sign-up .social-list.sign-up,
-.container.sign-up .social-list.sign-up>div {
+.container2.sign-in .form.sign-in,
+.container2.sign-in .social-list.sign-in,
+.container2.sign-in .social-list.sign-in>div,
+.container2.sign-up .form.sign-up,
+.container2.sign-up .social-list.sign-up,
+.container2.sign-up .social-list.sign-up>div {
   transform: scale(1);
 }
 
@@ -301,18 +301,18 @@ select.ng-invalid.ng-touched {
   transform: translateX(250%);
 }
 
-.container.sign-in .text.sign-in h2,
-.container.sign-in .text.sign-in p,
-.container.sign-in .img.sign-in img,
-.container.sign-up .text.sign-up h2,
-.container.sign-up .text.sign-up p,
-.container.sign-up .img.sign-up img {
+.container2.sign-in .text.sign-in h2,
+.container2.sign-in .text.sign-in p,
+.container2.sign-in .img.sign-in img,
+.container2.sign-up .text.sign-up h2,
+.container2.sign-up .text.sign-up p,
+.container2.sign-up .img.sign-up img {
   transform: translateX(0);
 }
 
 /* BACKGROUND */
 
-.container::before {
+.container2::before {
   content: "";
   position: absolute;
   top: 0;
@@ -328,12 +328,12 @@ select.ng-invalid.ng-touched {
   border-top-left-radius: max(50vw, 50vh);
 }
 
-.container.sign-in::before {
+.container2.sign-in::before {
   transform: translate(0, 0);
   right: 50%;
 }
 
-.container.sign-up::before {
+.container2.sign-up::before {
   transform: translate(100%, 0);
   right: 50%;
 }
@@ -343,8 +343,8 @@ select.ng-invalid.ng-touched {
 @media only screen and (max-width: 425px) {
 
   .container::before,
-  .container.sign-in::before,
-  .container.sign-up::before {
+  .container2.sign-in::before,
+  .container2.sign-up::before {
       height: 100vh;
       border-bottom-right-radius: 0;
       border-top-left-radius: 0;
@@ -353,12 +353,12 @@ select.ng-invalid.ng-touched {
       right: 0;
   }
 
-  /* .container.sign-in .col.sign-up {
+  /* .container2.sign-in .col.sign-up {
       transform: translateY(100%);
   } */
 
-  .container.sign-in .col.sign-in,
-  .container.sign-up .col.sign-up {
+  .container2.sign-in .col.sign-in,
+  .container2.sign-up .col.sign-up {
       transform: translateY(0);
   }
 
