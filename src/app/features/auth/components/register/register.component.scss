@@ -26,11 +26,12 @@ body {
   height: 100vh;
   overflow: hidden;
 }
-
+P
 .container {
   position: relative;
   min-height: 100vh;
   overflow: hidden;
+  margin: 0 auto;
   max-width: 1536px !important;
 }
 
@@ -81,10 +82,9 @@ body {
   // border-radius: .5rem;
   // border: 0.125rem solid var(--white);
   // outline: none;
-  background-color: var(--gray);
-  padding-right: 1rem;
   
   select{
+    background-color: var(--gray);
     width: 100%;
     padding: 1rem 3rem;
     font-size: 1rem;
