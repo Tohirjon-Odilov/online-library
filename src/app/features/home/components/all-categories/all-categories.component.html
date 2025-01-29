@@ -23,7 +23,7 @@
             <div
               class="book-card"
               *ngFor="let book of selectedData"
-              [routerLink]="['/book-detail']"
+              [routerLink]="['/book-detail/', book.id]"
             >
               <img
                 [src]="'https://app.tohirjon.uz/' + book.picture_url"

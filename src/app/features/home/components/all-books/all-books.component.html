@@ -3,7 +3,9 @@
     <h2>Saralangan kitoblar</h2>
     <div class="book-cards">
       <div class="book-card" *ngFor="let book of books">
-        <img [src]="baseUrl + '/' + book.picture_url" alt="{{ book.name }}" class="book-image" [routerLink]="['/book-detail']" />
+        <img [src]="baseUrl + '/' + book.picture_url"
+             alt="{{ book.name }}" class="book-image"
+             [routerLink]="['/book-detail']"/>
         <h3 [routerLink]="['/book-detail']">{{ book.name }}</h3>
         <p [routerLink]="['/book-detail']">{{ book.type }}</p>
         <!-- Yoqgan kitoblar tugmasi -->

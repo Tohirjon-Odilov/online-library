@@ -1,15 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { BookService } from '../../services/book.service';
 import { environment } from '../../../../../environments/environment';
 import { UserService } from '../../../../core/services/user.service';
-import { jwtDecode } from 'jwt-decode';
+import {jwtDecode, JwtPayload} from 'jwt-decode';
 import { ToastrService } from 'ngx-toastr';
+import {ActivatedRoute} from "@angular/router";
+
+interface MyJwtPayload extends JwtPayload {
+  UserId: number | null;
+}
 
 @Component({
   selector: 'app-all-books',
   templateUrl: './all-books.component.html',
   styleUrls: ['./all-books.component.scss'],
 })
+
 export class AllBooksComponent implements OnInit {
   books: any = [
     {
@@ -36,33 +42,43 @@ export class AllBooksComponent implements OnInit {
       price: 15,
       image: '../../../../../assets/imgs/book3.png',
     },
-    
+
     // Add more books as needed
   ];
   baseUrl = environment.baseUrl
 
-  userId: any
+  userId: number | null = null
 
   constructor(
     private bookService: BookService,
     private userService: UserService,
-    private toaster: ToastrService
+    private toaster: ToastrService,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
+    this.userId = ((jwtDecode(localStorage.getItem('userData') as string)) as MyJwtPayload).UserId;
+
+    this.route.queryParams.subscribe(params => {
+      if (params['bookId']) {
+        // this.bookService.getBooksByCategory(params['category']).subscribe(res => {
+        //   this.books = res.items
+        // })
+      }
+    })
+
+
     this.bookService.getBooks().subscribe(res => {
       this.books = res.items
     })
 
-    this.userId = jwtDecode(localStorage.getItem('userData') as string)
-    this.userId = +this.userId.UserId
   }
 
   addToFavorites(book: any): void {
     const formData = new FormData();
-    formData.append('UserId', this.userId);
+    formData.append('UserId', this.userId!.toString());
     formData.append('BookId', book.id.toString());
-  
+
     this.userService.addBookToUser(formData).subscribe(
       (response) => {
         this.toaster.success('Yoqgan kitoblarga muvaffaqiyatli qo\'shildi.', 'Muvaffaqiyat');
@@ -76,12 +92,12 @@ export class AllBooksComponent implements OnInit {
       }
     );
   }
-  
+
   removeFromFavorites(book: any): void {
     const formData = new FormData();
-    formData.append('UserId', this.userId);
+    formData.append('UserId', this.userId!.toString());
     formData.append('BookId', book.id.toString());
-  
+
     this.userService.removeBookFromUser(formData).subscribe(
       (response) => {
         this.toaster.info('Kitob yoqqanlardan o\'chirildi.', 'O\'chirildi');
@@ -92,7 +108,7 @@ export class AllBooksComponent implements OnInit {
       }
     );
   }
-  
+
   toggleFavorite(book: any): void {
     if (book.user_ids?.includes(this.userId)) {
       this.removeFromFavorites(book); // Yoqqanlardan o'chirish
@@ -100,7 +116,7 @@ export class AllBooksComponent implements OnInit {
       this.addToFavorites(book); // Yoqqanlarga qo'shish
     }
   }
-  
+
   getIcon(book: any): string {
     if (book.user_ids?.includes(this.userId)) {
       return 'fa-solid fa-bookmark'; // Saqlangan ikonka
@@ -108,5 +124,5 @@ export class AllBooksComponent implements OnInit {
       return 'fa-regular fa-bookmark'; // Oddiy ikonka
     }
   }
-  
+
 }

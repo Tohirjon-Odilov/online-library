@@ -28,7 +28,7 @@ const routes: Routes = [
     component: AllBooksComponent
   },
   {
-    path: 'book-detail',
+    path: 'book-detail/:bookId',
     canActivate: [AuthGuard, RoleGuard], // HomeComponent ni AuthGuard va RoleGuard orqali himoya qilish
     data: { roles: ['user', 'admin'] }, // Foydalanuvchi ro'lini tekshirish
     component: BookDetailComponent

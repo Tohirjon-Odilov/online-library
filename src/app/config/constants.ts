@@ -30,6 +30,7 @@ export const API_URLS = {
   // Books
   ALL_BOOKS: BASE_URL + '/books',
   RANDOM_BOOKS: BASE_URL + '/book/random',
+  BOOK: BASE_URL + '/book',
 };
 
 export const STATUS_CODES = {
