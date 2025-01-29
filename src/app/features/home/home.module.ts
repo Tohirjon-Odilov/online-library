@@ -12,6 +12,8 @@ import { CarouselComponent } from './components/carusel/carusel.component';
 import {NzAlertComponent} from "ng-zorro-antd/alert";
 import { AuthorDetailComponent } from './components/author-detail/author-detail.component';
 import {NzCardComponent} from "ng-zorro-antd/card";
+import {NzTagComponent} from "ng-zorro-antd/tag";
+import {NzTypographyComponent} from "ng-zorro-antd/typography";
 
 
 @NgModule({
@@ -30,7 +32,9 @@ import {NzCardComponent} from "ng-zorro-antd/card";
     CommonModule,
     HomeRoutingModule,
     NzAlertComponent,
-    NzCardComponent
+    NzCardComponent,
+    NzTagComponent,
+    NzTypographyComponent
   ]
 })
 export class HomeModule { }

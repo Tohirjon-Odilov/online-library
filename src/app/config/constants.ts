@@ -35,6 +35,7 @@ export const API_URLS = {
 
 export const AUTHORS_URL = {
   ALL_AUTHORS: BASE_URL + '/authors',
+  AUTHOR_BY_ID: BASE_URL + '/author/',
 }
 
 export const STATUS_CODES = {

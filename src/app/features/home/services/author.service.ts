@@ -14,4 +14,8 @@ export class AuthorService {
   getAuthors(): Observable<any> {
     return this.http.get<any>(AUTHORS_URL.ALL_AUTHORS + "?page=1&limit=10");
   }
+
+  getAuthorById(authorId: number): Observable<any> {
+    return this.http.get<any>(AUTHORS_URL.AUTHOR_BY_ID + authorId);
+  }
 }
