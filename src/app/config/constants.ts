@@ -33,6 +33,10 @@ export const API_URLS = {
   BOOK: BASE_URL + '/book',
 };
 
+export const AUTHORS_URL = {
+  ALL_AUTHORS: BASE_URL + '/authors',
+}
+
 export const STATUS_CODES = {
   SUCCESS: 200,
   NOT_FOUND: 404,

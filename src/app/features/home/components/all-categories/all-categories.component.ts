@@ -9,25 +9,16 @@ import { CategoryService } from '../../services/category.service';
   styleUrls: ['./all-categories.component.scss']
 })
 export class AllCategoriesComponent {
-  
+
   constructor(
     // private logger: LoggerService,
     private router: Router,
     private categoriesService: CategoryService
   ) { }
-  
-  // categories: any[] = [
-  //   'Texnalogiya',
-  //   'Salomatlik',
-  //   'Ta\'lim',
-  //   'Bizness',
-  //   'Hayot tarzi',
-  //   'Ko\'ngilochar'
-  // ];
 
   categories: any[] = [];
   filterCategories: any[] = [];
-  
+
   ngOnInit(): void {
     this.categoriesService.getCategories().subscribe(
       (categories) => {
@@ -51,7 +42,7 @@ export class AllCategoriesComponent {
     { title: 'Der Process', author: 'Franz Kafka', image: '../../../../../assets/imgs/book2.png' },
     { title: 'The Idiot', author: 'Fyodor Dostoevsky', image: '../../../../../assets/imgs/book3.png' }
   ];
-  
+
   selectedCategory: number | null = null;
   selectedData: any | null = null;
 

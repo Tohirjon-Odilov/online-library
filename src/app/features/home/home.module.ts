@@ -9,6 +9,9 @@ import { AllAuthorsComponent } from './components/all-authors/all-authors.compon
 import { AllCategoriesComponent } from './components/all-categories/all-categories.component';
 import { AllInstituteLiteratureComponent } from './components/all-institute-literature/all-institute-literature.component';
 import { CarouselComponent } from './components/carusel/carusel.component';
+import {NzAlertComponent} from "ng-zorro-antd/alert";
+import { AuthorDetailComponent } from './components/author-detail/author-detail.component';
+import {NzCardComponent} from "ng-zorro-antd/card";
 
 
 @NgModule({
@@ -21,10 +24,13 @@ import { CarouselComponent } from './components/carusel/carusel.component';
     AllCategoriesComponent,
     AllInstituteLiteratureComponent,
     CarouselComponent,
+    AuthorDetailComponent,
   ],
   imports: [
     CommonModule,
-    HomeRoutingModule
+    HomeRoutingModule,
+    NzAlertComponent,
+    NzCardComponent
   ]
 })
 export class HomeModule { }

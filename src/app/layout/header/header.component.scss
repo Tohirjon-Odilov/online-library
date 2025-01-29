@@ -2,7 +2,7 @@
 .site-header {
   background-color: #ffffff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 0px 0;
+  padding: 0 0;
   position: fixed;
   width: 100%;
   z-index: 1000;
@@ -32,6 +32,7 @@
   }
 
   .logo-title{
+    line-height: 16px;
     font-size: 14px;
   }
 }
@@ -56,6 +57,7 @@
 .header-item a {
   text-decoration: none;
   color: #333;
+  font-size: 17px;
   font-weight: 500;
   transition: color 0.3s ease;
 }

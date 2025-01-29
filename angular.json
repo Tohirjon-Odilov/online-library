@@ -39,13 +39,14 @@
               },
               {
                 "glob": "**/*",
-                "input": "src/assets", 
+                "input": "src/assets",
                 "output": "/assets"
               }
             ],
             "styles": [
-              "src/styles.scss",
-              "node_modules/ngx-toastr/toastr.css"
+              "node_modules/ngx-toastr/toastr.css",
+              "node_modules/ng-zorro-antd/ng-zorro-antd.min.css",
+              "src/styles.scss"
             ],
             "scripts": []
           },
@@ -75,8 +76,8 @@
         },
         "serve": {
           "options": {
-          "port": 5002
-        },
+            "port": 5002
+          },
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {

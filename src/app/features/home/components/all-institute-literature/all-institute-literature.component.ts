@@ -1,4 +1,4 @@
-import { AfterViewChecked, AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import {AfterViewChecked, AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import { LoggerService } from '../../../../core/services/logger.service';
 import { Router } from '@angular/router';
 import { CategoryService } from '../../services/category.service';
@@ -8,28 +8,20 @@ import { CategoryService } from '../../services/category.service';
   templateUrl: '../all-categories/all-categories.component.html',
   styleUrl: '../all-categories/all-categories.component.scss'
 })
-export class AllInstituteLiteratureComponent  implements AfterViewChecked{  
+
+export class AllInstituteLiteratureComponent implements OnInit, AfterViewChecked{
   @ViewChild('book') book!: ElementRef;
   categoryHeight: any;
-  
+
   constructor(
     // private logger: LoggerService,
     private router: Router,
     private categoriesService: CategoryService
   ) { }
-  
-  // categories: any[] = [
-  //   'Texnalogiya',
-  //   'Salomatlik',
-  //   'Ta\'lim',
-  //   'Bizness',
-  //   'Hayot tarzi',
-  //   'Ko\'ngilochar'
-  // ];
 
   categories: any[] = [];
   filterCategories: any[] = [];
-  
+
   ngOnInit(): void {
     this.categoriesService.getCategories().subscribe(
       (categories) => {
@@ -49,7 +41,7 @@ export class AllInstituteLiteratureComponent  implements AfterViewChecked{
   }
 
   ngAfterViewChecked(): void {
-    
+
     this.categoryHeight = this.book; // Elementning balandligi
     console.log('Div height:', this.categoryHeight);
 
@@ -67,7 +59,7 @@ export class AllInstituteLiteratureComponent  implements AfterViewChecked{
     { title: 'Der Process', author: 'Franz Kafka', image: '../../../../../assets/imgs/book2.png' },
     { title: 'The Idiot', author: 'Fyodor Dostoevsky', image: '../../../../../assets/imgs/book3.png' }
   ];
-  
+
   selectedCategory: number | null = null;
   selectedData: any | null = null;
 

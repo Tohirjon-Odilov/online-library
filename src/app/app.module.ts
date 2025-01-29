@@ -13,6 +13,11 @@ import { ToastrModule } from 'ngx-toastr';
 import { AuthModule } from './features/auth/auth.module';
 import { ErrorPagesModule } from './features/error-pages/error-pages.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {NzButtonModule} from "ng-zorro-antd/button";
+import {NzListModule} from "ng-zorro-antd/list";
+import {NzTypographyModule} from "ng-zorro-antd/typography";
+import {NgZorroModule} from "./shared/ng-zorro.module";
+import {FeatureModule} from "./shared/feature.module";
 
 // Tarjima loader'ini yaratish funksiyasi
 export function HttpLoaderFactory(http: HttpClient) {
@@ -30,10 +35,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     CoreModule,
     SharedModule,
     HttpClientModule,
-    HomeModule,
-    AuthModule,
-    LayoutModule,
-    ErrorPagesModule,
+    FeatureModule,
+    NgZorroModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
