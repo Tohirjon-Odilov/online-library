@@ -28,6 +28,7 @@ export class AuthorDetailComponent implements OnInit {
     this.authorService.getAuthorById(authorId).subscribe(
       (response) => {
         console.log(response);
+        this.author = response;
       },
       (error) => {
         this.message.error('Error while getting author detail');
