@@ -79,7 +79,7 @@
         </div>
         <div *ngIf="activeTab === 'readOnline'"class="read-online-tab">
           <button (click)="openPdfViewer('')"  class="pdf-open">Kattaroq ekranda o'qish</button>
-          <iframe [src]="sanitizer.bypassSecurityTrustResourceUrl('../../../../../assets/data/Vilyam-Shekspir-Hamlet-tragediya.pdf#toolbar=0&navpanes=0&scrollbar=0&zoom=150')"  width="100%" height="800px"></iframe>
+          <iframe [src]="sanitizer.bypassSecurityTrustResourceUrl(baseUrl+'/'+book?.pdf_url+'#toolbar=0&navpanes=0&scrollbar=0&zoom=150')"  width="100%" height="800px"></iframe>
         <!-- Fullscreen tugmasi -->
         <!-- <button (click)="openFullscreen()" class="btn-fullscreen">
               <i class="fas fa-expand"></i>
@@ -107,7 +107,7 @@
     <iframe
       [src]="
         sanitizer.bypassSecurityTrustResourceUrl(
-          '../../../../../assets/data/Vilyam-Shekspir-Hamlet-tragediya.pdf#toolbar=0&navpanes=0&scrollbar=0&zoom=180'
+          baseUrl+'/'+book?.pdf_url+'#toolbar=0&navpanes=0&scrollbar=0&zoom=180'
         )
       "
       width="100%"

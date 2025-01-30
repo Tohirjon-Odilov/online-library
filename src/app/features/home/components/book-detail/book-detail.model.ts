@@ -35,6 +35,7 @@ export interface Book {
   created_at: string;
   updated_at: string;
   picture_url: string;
+  pdf_url: string;
   count: number;
   author_id: number;
   country_id: number;
