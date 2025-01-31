@@ -4,6 +4,7 @@ import { AuthService } from '../../../../core/authentication/auth.service';
 // import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { CountryService } from '../../../home/services/country.service';
+import {NzMessageService} from "ng-zorro-antd/message";
 
 @Component({
   selector: 'app-form',
@@ -13,17 +14,17 @@ import { CountryService } from '../../../home/services/country.service';
 export class RegisterComponent implements OnInit {
   constructor(
     private authService: AuthService,
-    // private toaster: ToastrService,
     private router: Router,
-    private countries: CountryService
+    private countries: CountryService,
+    private message: NzMessageService
   ) {}
-  
+
   isSignIn: boolean = true;
   countriesList: any[] = [];
-  
+
   ngOnInit(): void {
     this.countries.getAllCountries().subscribe((response) => {
-      this.countriesList = response; 
+      this.countriesList = response;
     })
     setTimeout(() => {
       this.isSignIn = true;
@@ -36,7 +37,7 @@ export class RegisterComponent implements OnInit {
 
   loginDTO: any = {
     email: '',
-    password: ''  
+    password: ''
   }
 
   registerData: RegisterDTO = {
@@ -48,7 +49,6 @@ export class RegisterComponent implements OnInit {
     picture: undefined
   };
 
-  confirmPassword: any = '';
   errorMessage = '';
 
   onFileSelected(event: any): void {
@@ -65,20 +65,17 @@ export class RegisterComponent implements OnInit {
           count: "1",
           countryId: this.registerData.country_id
         };
-        
+
         this.countries.addPersonCountry(person).subscribe();
-        
-        console.log('Foydalanuvchi muvaffaqiyatli ro\'yxatdan o\'tdi:', response);
         this.toggle();
-        // this.toaster.success('Ro\'yxatdan muvaffaqiyatli o\'tdingiz.', 'Muvaffaqiyat');
-        console.log("Ro'yxatdan muvaffaqiyatli o'tdingiz.");
+        this.message.success('Ro\'yxatdan muvaffaqiyatli o\'tdingiz.');
       },
       (error) => {
         if(error.status === 409){
-          // this.toaster.error('Email orqali oldin ro`yhatdan o`tilgan!', 'Xatolik');
-          console.log('Email orqali oldin ro`yhatdan o`tilgan!');
+          this.message.error('Email orqali oldin ro`yhatdan o`tilgan!');
           this.errorMessage = "Email orqali oldin ro`yhatdan o`tilgan!";
         }else{
+          this.message.error('Xatolik mavjud!');
           // this.toaster.error('Xatolik mavjud!', 'Xatolik');
           console.log('Xatolik mavjud!');
           this.errorMessage = error.error.title;
@@ -91,17 +88,16 @@ export class RegisterComponent implements OnInit {
   login(): void {
     this.authService.login(this.loginDTO).subscribe(
       (response) => {
-        console.log('Foydalanuvchi muvaffaqiyatli tizimga kirdi:', response);
-        // this.toggle();
-        // this.toaster.success('Muvaffaqiyatli tizimga kirdingiz.', 'Muvaffaqiyat');
-        console.log("Muvaffaqiyatli tizimga kirdingiz.");
-        // this.router.navigate(['/']);
-        window.location.href = '/';
+        this.message.success('Muvaffaqiyatli tizimga kirdingiz.');
+        // console.log("Muvaffaqiyatli tizimga kirdingiz.");
+        this.router.navigate(['/']);
+        // window.location.href = '/';
       },
       (error) => {
+        this.message.error('Email yoki parol xato!');
         console.error(error);
       }
     )
   }
-  
+
 }
