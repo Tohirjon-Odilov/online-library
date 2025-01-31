@@ -18,7 +18,7 @@
               </div>
               <div>
                 <h3>The Stranger</h3>
-              <p>Albert Camus</p>
+                <p>Albert Camus</p>
               </div>
             </li>
             <!-- <li class="intro-item" [routerLink]="['/all-books']">
@@ -53,7 +53,7 @@
             </div>
             <div>
               <!-- <h3>The Stranger</h3> -->
-            <p>{{category.name}}</p>
+              <p>{{ category.name }}</p>
             </div>
           </li>
           <!-- <li class="intro-item">
@@ -83,42 +83,56 @@
       </div>
     </div>
   </section>
-  
 
-    <app-carusel
-      [images]="carouselImages"
-      [interval]="5000"
-    ></app-carusel>
+  <app-carusel
+    [images]="carouselImages"
+    [interval]="5000"
+  ></app-carusel>
 
   <section class="authors-section" id="authors">
-      <div class="wrapper container">
-        <h2>Muallif</h2>
-        <a [routerLink]="['/all-authors']" class="see-all">Barchasini ko'rish</a>
-      </div>
-      <div class="author">
-        <div class="container authors">
-          <div class="author-card">
+    <div class="wrapper container">
+      <h2>Muallif</h2>
+      <a [routerLink]="['/all-authors']" class="see-all">Barchasini ko'rish</a>
+    </div>
+    <div class="author">
+      <div class="container authors">
+        <ng-container *ngFor="let author of randomImage(authors.items).slice(0, 2)">
+          <div class="author-card" [routerLink]="['/author-detail', author.id]">
             <div class="author-image">
-              <img src="../../../../../assets/imgs/usa.png" alt="Friedrich Nietzsche" />
+              <img [src]="baseUrl + '/AuthorImage/' + author.picture_url" alt="Friedrich Nietzsche"/>
             </div>
             <div class="author-info">
-              <p class="author-name">Name: <strong>Friedrich Nietzsche</strong></p>
-              <p class="author-about">About the author:</p>
-              <p>British-American author of fantasy genre. His first book - "The Lord of Thorns" became a finalist of the fantasy genre in 2011...</p>
+              <div class="name-wrapper">Ismi: <h3 class="author-name">{{ author.full_name }}</h3></div>
+              <p class="author-about">Muallif haqida:</p>
+              <p><strong>Tug'ilgan sana:</strong> {{ author.birth_date }}</p>
+              <p class="bio">{{ author.bio_wikipediya | slice:0:150 }}...</p>
             </div>
           </div>
-          <div class="author-card">
-            <div class="author-image">
-              <img src="../../../../../assets/imgs/bobur.png" alt="Ervin Shrodinger" />
-            </div>
-            <div class="author-info">
-              <p class="author-name">Name: <strong>Ervin Shrodinger</strong></p>
-              <p class="author-about">About the author:</p>
-              <p>British-American author of fantasy genre. His first book - "The Lord of Thorns" became a finalist of the fantasy genre in 2011...</p>
-            </div>
-          </div>
-        </div>
+        </ng-container>
+<!--        <div class="author-card">-->
+<!--          <div class="author-image">-->
+<!--            <img [src]="baseUrl + '/AuthorImage/' + author.picture_url" alt="Friedrich Nietzsche"/>-->
+<!--          </div>-->
+<!--          <div class="author-info">-->
+<!--            <p class="author-name">Name: <strong>Friedrich Nietzsche</strong></p>-->
+<!--            <p class="author-about">About the author:</p>-->
+<!--            <p>British-American author of fantasy genre. His first book - "The Lord of Thorns" became a finalist of the-->
+<!--              fantasy genre in 2011...</p>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="author-card">-->
+<!--          <div class="author-image">-->
+<!--            <img src="../../../../../assets/imgs/bobur.png" alt="Ervin Shrodinger"/>-->
+<!--          </div>-->
+<!--          <div class="author-info">-->
+<!--            <p class="author-name">Name: <strong>Ervin Shrodinger</strong></p>-->
+<!--            <p class="author-about">About the author:</p>-->
+<!--            <p>British-American author of fantasy genre. His first book - "The Lord of Thorns" became a finalist of the-->
+<!--              fantasy genre in 2011...</p>-->
+<!--          </div>-->
+<!--        </div>-->
       </div>
+    </div>
   </section>
-  
+
 </main>
