@@ -31,15 +31,7 @@ export class BookDetailComponent implements OnInit {
       this.getBooks(params['bookId']);
     })
 
-    // Placeholder data, replace this with actual book data from the parent component or service
-    // this.book = this.book || {
-    //   // cover: '../../../../../assets/imgs/book1.png',
-    //   title: 'Sample Book Title',
-    //   description: 'A brief description of the book.',
-    //   details: ['Author: John Doe', 'Published: 2023', 'Pages: 320'],
-    //   fullDescription: 'This is the full description of the book with detailed information...',
-    //   reviews: ['Great read!', 'Very informative.', 'Enjoyed every chapter!']
-    // };
+    window.scrollTo(0, 0);
   }
 
   getBooks(bookId: number): void {

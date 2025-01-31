@@ -3,29 +3,8 @@
     <div class="book-header">
       <img class="book-cover" [src]="baseUrl+ '/' + book?.picture_url" alt="{{ book?.name }}"/>
       <div class="book-info">
-        <h1><strong>Kitob nomi: </strong>{{ book?.name }}</h1>
+        <h1><strong style="font-size: 18px">Kitob nomi: </strong>{{ book?.name }}</h1>
         <p class="description"><strong>Haqida: </strong> {{ book?.description }}</p>
-        <!--        <nz-list nzBordered>-->
-        <!--          <nz-list-item *ngIf="book?.country?.name">-->
-        <!--            <strong>Mamlakat:</strong> {{ book?.country.name }}-->
-        <!--          </nz-list-item>-->
-
-        <!--          <nz-list-item *ngIf="book?.author?.full_name">-->
-        <!--            <strong>Muallif:</strong> {{ book?.author.full_name }}-->
-        <!--          </nz-list-item>-->
-
-        <!--          <nz-list-item *ngIf="book?.type">-->
-        <!--            <strong>Janr:</strong> {{ book?.type }}-->
-        <!--          </nz-list-item>-->
-
-        <!--          <nz-list-item *ngIf="book?.length">-->
-        <!--            <strong>Hajmi:</strong> {{ book?.length }} sahifa-->
-        <!--          </nz-list-item>-->
-
-        <!--          <nz-list-item *ngIf="book?.category?.name">-->
-        <!--            <strong>Bo‘lim:</strong> {{ book?.category.name }}-->
-        <!--          </nz-list-item>-->
-        <!--        </nz-list>-->
 
         <ul class="book-details">
           <li *ngIf="book?.country?.name">

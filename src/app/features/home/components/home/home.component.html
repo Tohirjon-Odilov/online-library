@@ -12,29 +12,15 @@
         <!-- Right side book list -->
         <div class="intro-card">
           <ul class="intro-list">
-            <li class="intro-item" [routerLink]="['/all-books']" *ngFor="let book of topBooks">
+            <li class="intro-item" [routerLink]="['/book-detail', book.id]" *ngFor="let book of topBooks">
               <div class="intro-wrapper">
                 <img [src]="baseUrl+'/'+book.picture_url" alt="The Stranger">
               </div>
               <div>
-                <h3>The Stranger</h3>
-                <p>Albert Camus</p>
+                <h3>{{ book.name }}</h3>
+                <p>{{ book.author_name }}</p>
               </div>
             </li>
-            <!-- <li class="intro-item" [routerLink]="['/all-books']">
-              <img src="../../../../../assets/imgs/book2.png" alt="Der Process">
-              <div>
-                <h3>Der Process</h3>
-              <p>Franz Kafka</p>
-              </div>
-            </li>
-            <li class="intro-item" [routerLink]="['/all-books']">
-              <img src="../../../../../assets/imgs/book3.png" alt="Divine Comedy">
-              <div>
-                <h3>The Stranger</h3>
-              <p>Albert Camus</p>
-              </div>
-            </li> -->
           </ul>
         </div>
       </div>
@@ -48,7 +34,7 @@
           <li class="intro-item offers-card" *ngFor="let category of randomCategoryImage(randomCategories)">
             <div class="img-wrapper">
               <ng-container *ngFor="let img of randomImage(randomBook)">
-                <img [src]="baseUrl+'/'+img.picture_url" alt="The Stranger">
+                <img [routerLink]="['/book-detail', img.id]" [src]="baseUrl+'/'+img.picture_url" alt="The Stranger">
               </ng-container>
             </div>
             <div>
