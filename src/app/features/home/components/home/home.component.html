@@ -14,7 +14,7 @@
           <ul class="intro-list">
             <li class="intro-item" [routerLink]="['/book-detail', book.id]" *ngFor="let book of topBooks">
               <div class="intro-wrapper">
-                <img [src]="baseUrl+'/'+book.picture_url" alt="The Stranger">
+                <img [src]="baseUrl+'/'+book.picture_url" [alt]="book.name">
               </div>
               <div>
                 <h3>{{ book.name }}</h3>
@@ -31,10 +31,10 @@
       <div class="intro-card offers-card">
         <h2>Adabiyotlar</h2>
         <ul class="intro-list">
-          <li class="intro-item offers-card" *ngFor="let category of randomCategoryImage(randomCategories)">
+          <li class="intro-item offers-card" *ngFor="let category of randomCategories">
             <div class="img-wrapper">
-              <ng-container *ngFor="let img of randomImage(randomBook)">
-                <img [routerLink]="['/book-detail', img.id]" [src]="baseUrl+'/'+img.picture_url" alt="The Stranger">
+              <ng-container *ngFor="let img of randomBook">
+                <img [routerLink]="['/book-detail', img.id]" [src]="baseUrl+'/'+img.picture_url" [alt]="img.name">
               </ng-container>
             </div>
             <div>
@@ -82,10 +82,10 @@
     </div>
     <div class="author">
       <div class="container authors">
-        <ng-container *ngFor="let author of randomImage(authors.items).slice(0, 2)">
+        <ng-container *ngFor="let author of authorSelect(authors)">
           <div class="author-card" [routerLink]="['/author-detail', author.id]">
             <div class="author-image">
-              <img [src]="baseUrl + '/AuthorImage/' + author.picture_url" alt="Friedrich Nietzsche"/>
+              <img [src]="baseUrl + '/AuthorImage/' + author.picture_url" alt="{{ author.full_name }}"/>
             </div>
             <div class="author-info">
               <div class="name-wrapper">Ismi: <h3 class="author-name">{{ author.full_name }}</h3></div>

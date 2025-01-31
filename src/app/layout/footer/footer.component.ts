@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import {NzNotificationService} from "ng-zorro-antd/notification";
 
 @Component({
   selector: 'app-footer',
@@ -8,7 +9,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class FooterComponent {
 
-  constructor(private toastr: ToastrService) {}
+  constructor(private toastr: NzNotificationService) {}
   jumpTo(section: string) {
     const element = document.getElementById(section);
     if (element) {
@@ -17,6 +18,6 @@ export class FooterComponent {
   }
 
   showReportInfo(): void {
-    this.toastr.info('Iltimos ctrl+enter tugmasidan foydalaning!', 'Info');
+    this.toastr.info('Info','Iltimos ctrl+enter tugmasidan foydalaning!');
   }
 }

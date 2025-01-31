@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../../core/authentication/auth.service';
+import {NzNotificationService} from "ng-zorro-antd/notification";
 
 @Component({
   selector: 'app-header',
@@ -10,8 +11,8 @@ import { AuthService } from '../../core/authentication/auth.service';
 })
 export class HeaderComponent {
   constructor(
-    private router: Router, 
-    private toastr: ToastrService,
+    private router: Router,
+    private toastr: NzNotificationService,
     private auth: AuthService
   ) {}
 
@@ -54,6 +55,6 @@ export class HeaderComponent {
   }
 
   showReportInfo(): void {
-    this.toastr.info('Iltimos ctrl+enter tugmasidan foydalaning!', 'Info');
+    this.toastr.info('Info','Iltimos ctrl+enter tugmasidan foydalaning!');
   }
 }
