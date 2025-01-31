@@ -19,6 +19,8 @@ export class HomeComponent implements OnInit {
   randomCategories: Array<any> = []
   topBooks: Array<any> = []
   authors: any;
+  lastExecuted = 0; // Oxirgi ishga tushirilgan vaqtni saqlaydi
+  runCount = 0;
 
   carouselImages = [
     'https://via.placeholder.com/800x300/FF5733/FFFFFF?text=Slide+1',
@@ -53,8 +55,17 @@ export class HomeComponent implements OnInit {
   }
 
   randomImage(imageArray: any): any {
-    console.log("randomImage");
-    return shuffle(imageArray).slice(0, 4);
+    console.log(this.lastExecuted)
+    // if (this.runCount < 3) { // 5 daqiqa = 300000 ms
+      console.log("Funksiya ishga tushdi!");
+      console.log("randomImage");
+      this.runCount++;
+      return shuffle(imageArray).slice(0, 4);
+      // Kerakli kod shu yerda
+    // } else {
+    //   console.log("Funksiya 5 daqiqada faqat bir marta ishlashi mumkin!");
+    //   return this.randomBook.slice(0, 4);
+    // }
   }
 
   randomCategoryImage(imageArray: Array<any>): any {
@@ -69,7 +80,7 @@ export class HomeComponent implements OnInit {
   }
 
   authorSelect(authors: any) {
-    if(authors?.items?.length > 2) {
+    if (authors?.items?.length > 2) {
       return shuffle(authors.items).slice(0, 2);
     }
     return []
