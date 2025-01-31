@@ -294,13 +294,15 @@ select.ng-invalid.ng-touched {
 .text.sign-in h2,
 .text.sign-in p,
 .img.sign-in img {
-  transform: translateX(-250%);
+  //transform: translateX(-250%);
+  opacity: 0;
 }
 
 .text.sign-up h2,
 .text.sign-up p,
 .img.sign-up img {
-  transform: translateX(250%);
+  //transform: translateX(250%);
+  opacity: 0;
 }
 
 .container2.sign-in .text.sign-in h2,
@@ -309,7 +311,8 @@ select.ng-invalid.ng-touched {
 .container2.sign-up .text.sign-up h2,
 .container2.sign-up .text.sign-up p,
 .container2.sign-up .img.sign-up img {
-  transform: translateX(0);
+  //transform: translateX(0);
+  opacity: 1;
 }
 
 /* BACKGROUND */
