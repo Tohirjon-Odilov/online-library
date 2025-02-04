@@ -13,10 +13,15 @@ import {
 import {CarouselComponent} from './components/carusel/carusel.component';
 import {NzAlertComponent} from "ng-zorro-antd/alert";
 import {AuthorDetailComponent} from './components/author-detail/author-detail.component';
-import {NzCardComponent} from "ng-zorro-antd/card";
-import {NzTagComponent} from "ng-zorro-antd/tag";
-import {NzTypographyComponent} from "ng-zorro-antd/typography";
+import {NzCardComponent, NzCardModule} from "ng-zorro-antd/card";
+import {NzTagComponent, NzTagModule} from "ng-zorro-antd/tag";
+import {NzTypographyComponent, NzTypographyModule} from "ng-zorro-antd/typography";
 import {SharedModule} from "../../shared/shared.module";
+import {NzListItemComponent, NzListModule} from "ng-zorro-antd/list";
+import {NzTabsModule} from "ng-zorro-antd/tabs";
+import {NzModalModule} from "ng-zorro-antd/modal";
+import {NzButtonModule} from "ng-zorro-antd/button";
+import {NzIconModule} from "ng-zorro-antd/icon";
 
 
 @NgModule({
@@ -29,7 +34,7 @@ import {SharedModule} from "../../shared/shared.module";
     AllCategoriesComponent,
     AllInstituteLiteratureComponent,
     CarouselComponent,
-    AuthorDetailComponent
+    AuthorDetailComponent,
   ],
   imports: [
     CommonModule,
@@ -38,7 +43,15 @@ import {SharedModule} from "../../shared/shared.module";
     NzCardComponent,
     NzTagComponent,
     NzTypographyComponent,
-    SharedModule
+    SharedModule,
+    NzCardModule,
+    NzListModule,
+    NzTagModule,
+    NzTabsModule,
+    NzModalModule,
+    NzButtonModule,
+    NzIconModule,
+    NzTypographyModule
   ]
 })
 export class HomeModule {
