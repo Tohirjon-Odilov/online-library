@@ -5,6 +5,7 @@ import { AuthService } from '../../../../core/authentication/auth.service';
 import { Router } from '@angular/router';
 import { CountryService } from '../../../home/services/country.service';
 import {NzMessageService} from "ng-zorro-antd/message";
+import {NzNotificationService} from "ng-zorro-antd/notification";
 
 @Component({
   selector: 'app-form',
@@ -16,7 +17,7 @@ export class RegisterComponent implements OnInit {
     private authService: AuthService,
     private router: Router,
     private countries: CountryService,
-    private message: NzMessageService
+    private message: NzNotificationService
   ) {}
 
   isSignIn: boolean = true;
@@ -60,7 +61,7 @@ export class RegisterComponent implements OnInit {
 
   register(): void {
     this.authService.registerUser(this.registerData).subscribe(
-      (response) => {
+      (_) => {
         const person = {
           count: "1",
           countryId: this.registerData.country_id
@@ -68,14 +69,14 @@ export class RegisterComponent implements OnInit {
 
         this.countries.addPersonCountry(person).subscribe();
         this.toggle();
-        this.message.success('Ro\'yxatdan muvaffaqiyatli o\'tdingiz.');
+        this.message.success('Muvaffaqiyatli','Ro\'yxatdan muvaffaqiyatli o\'tdingiz.');
       },
       (error) => {
         if(error.status === 409){
-          this.message.error('Email orqali oldin ro`yhatdan o`tilgan!');
+          this.message.warning('Ma\'lumot','Email orqali oldin ro`yhatdan o`tilgan!');
           this.errorMessage = "Email orqali oldin ro`yhatdan o`tilgan!";
         }else{
-          this.message.error('Xatolik mavjud!');
+          this.message.error('Xatolik','Xatolik mavjud!');
           // this.toaster.error('Xatolik mavjud!', 'Xatolik');
           console.log('Xatolik mavjud!');
           this.errorMessage = error.error.title;
@@ -88,13 +89,13 @@ export class RegisterComponent implements OnInit {
   login(): void {
     this.authService.login(this.loginDTO).subscribe(
       (response) => {
-        this.message.success('Muvaffaqiyatli tizimga kirdingiz.');
+        this.message.success('Muvaffaqiyatli','Muvaffaqiyatli tizimga kirdingiz.');
         // console.log("Muvaffaqiyatli tizimga kirdingiz.");
         this.router.navigate(['/']);
         // window.location.href = '/';
       },
       (error) => {
-        this.message.error('Email yoki parol xato!');
+        this.message.error('Xatolik','Email yoki parol xato!');
         console.error(error);
       }
     )

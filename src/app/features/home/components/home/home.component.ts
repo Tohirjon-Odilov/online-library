@@ -7,6 +7,7 @@ import {List, shuffle} from 'lodash';
 import {API_URLS} from '../../../../config/constants';
 import {environment} from '../../../../../environments/environment';
 import {AuthorService} from "../../services/author.service";
+import {DataService} from "../../../../core/services/data.service";
 
 @Component({
   selector: 'app-home',
@@ -21,6 +22,7 @@ export class HomeComponent implements OnInit {
   authors: any;
   lastExecuted = 0; // Oxirgi ishga tushirilgan vaqtni saqlaydi
   runCount = 0;
+  testData: string | null = null
 
   carouselImages = [
     'https://via.placeholder.com/800x300/FF5733/FFFFFF?text=Slide+1',
@@ -33,14 +35,17 @@ export class HomeComponent implements OnInit {
     private logger: LoggerService,
     private categoryService: CategoryService,
     private bookService: BookService,
-    private authorService: AuthorService
+    private authorService: AuthorService,
+    private dataService: DataService
   ) {
   }
 
   ngOnInit(): void {
-    console.log('Home component initialized');
+    this.dataService.currentMessage.subscribe(message =>
+      this.testData = message);
+
     this.bookService.getRandomBook().subscribe(res => {
-      this.randomBook = this.randomImage(res);
+      this.randomBook = res;
     })
 
     this.bookService.getBooks().subscribe(res => {
@@ -54,20 +59,6 @@ export class HomeComponent implements OnInit {
     this.getAllAuthor();
   }
 
-  randomImage(imageArray: any): any {
-    console.log(this.lastExecuted)
-    // if (this.runCount < 3) { // 5 daqiqa = 300000 ms
-      console.log("Funksiya ishga tushdi!");
-      console.log("randomImage");
-      this.runCount++;
-      return shuffle(imageArray).slice(0, 4);
-      // Kerakli kod shu yerda
-    // } else {
-    //   console.log("Funksiya 5 daqiqada faqat bir marta ishlashi mumkin!");
-    //   return this.randomBook.slice(0, 4);
-    // }
-  }
-
   randomCategoryImage(imageArray: Array<any>): any {
     return shuffle(imageArray).slice(0, 3);
   }
@@ -77,12 +68,5 @@ export class HomeComponent implements OnInit {
       this.authors = authors
       console.log(authors);
     })
-  }
-
-  authorSelect(authors: any) {
-    if (authors?.items?.length > 2) {
-      return shuffle(authors.items).slice(0, 2);
-    }
-    return []
   }
 }

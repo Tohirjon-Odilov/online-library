@@ -4,7 +4,7 @@
       <img class="book-cover" [src]="baseUrl+ '/' + book?.picture_url" alt="{{ book?.name }}"/>
       <div class="book-info">
         <h1><strong style="font-size: 18px">Kitob nomi: </strong>{{ book?.name }}</h1>
-        <p class="description"><strong>Haqida: </strong> {{ book?.description }}</p>
+        <p class="description"><strong>Haqida: </strong> {{ book?.type }}</p>
 
         <ul class="book-details">
           <li *ngIf="book?.country?.name">

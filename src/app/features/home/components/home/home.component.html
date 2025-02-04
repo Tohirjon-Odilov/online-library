@@ -33,7 +33,7 @@
         <ul class="intro-list">
           <li class="intro-item offers-card" *ngFor="let category of randomCategories">
             <div class="img-wrapper">
-              <ng-container *ngFor="let img of randomImage(randomBook)">
+              <ng-container *ngFor="let img of randomBook | randomImage:4">
                 <img [routerLink]="['/book-detail', img.id]" [src]="baseUrl+'/'+img.picture_url" [alt]="img.name">
               </ng-container>
             </div>
@@ -59,7 +59,7 @@
     </div>
     <div class="author">
       <div class="container authors">
-        <ng-container *ngFor="let author of authorSelect(authors)">
+        <ng-container *ngFor="let author of authors.items | randomImage:2">
           <div class="author-card" [routerLink]="['/author-detail', author.id]">
             <div class="author-image">
               <img [src]="baseUrl + '/AuthorImage/' + author.picture_url" alt="{{ author.full_name }}"/>

@@ -1,22 +1,29 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../../core/authentication/auth.service';
 import {NzNotificationService} from "ng-zorro-antd/notification";
+import {DataService} from "../../core/services/data.service";
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit{
+  isDropdownVisible = false;
+
   constructor(
     private router: Router,
     private toastr: NzNotificationService,
-    private auth: AuthService
+    private auth: AuthService,
+    private dataService: DataService
   ) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  sendMessage(message: string) {
+    this.dataService.changeMessage(message);
   }
 
   jumpTo(section: string, event: any = "") {
@@ -34,8 +41,6 @@ export class HeaderComponent {
       }
     }
   }
-
-  isDropdownVisible = false;
 
   toggleDropdown(): void {
     this.isDropdownVisible = !this.isDropdownVisible;

@@ -9,12 +9,13 @@ import {ErrorPagesModule} from "../features/error-pages/error-pages.module";
     HomeModule,
     AuthModule,
     LayoutModule,
-    ErrorPagesModule,],
+    ErrorPagesModule,
+  ],
   exports: [
     HomeModule,
     AuthModule,
     LayoutModule,
-    ErrorPagesModule
+    ErrorPagesModule,
   ]
 })
 export class FeatureModule {}

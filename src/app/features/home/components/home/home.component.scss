@@ -42,13 +42,15 @@
   font-size: 14px;
   background-color: #333;
   color: #fff;
-  border: none;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  border: solid transparent 1px;
 }
 
 .intro-text button:hover {
-  background-color: #555;
+  color: #333;
+  background-color: #fff;
+  border: solid black 1px;
 }
 
 /* Right side book list style */

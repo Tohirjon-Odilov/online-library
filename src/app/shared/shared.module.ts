@@ -4,13 +4,15 @@ import { CommonModule } from '@angular/common';
 import { HoverDirective } from './directives/hover.directive';
 import { FormatDatePipe } from './pipes/format-date.pipe';
 import { GoBackComponent } from './components/go-back/go-back.component';
+import {RandomImagePipe} from "./pipes/random-image.pipe";
 
 @NgModule({
   declarations: [
     CustomButtonComponent,
     HoverDirective,
     FormatDatePipe,
-    GoBackComponent
+    GoBackComponent,
+    RandomImagePipe
   ],
   imports: [CommonModule],
   exports: [
@@ -18,7 +20,8 @@ import { GoBackComponent } from './components/go-back/go-back.component';
     GoBackComponent,
     HoverDirective,
     FormatDatePipe,
-    CommonModule
+    CommonModule,
+    RandomImagePipe
   ]
 })
 export class SharedModule { }
