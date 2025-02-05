@@ -22,6 +22,7 @@ import {NzTabsModule} from "ng-zorro-antd/tabs";
 import {NzModalModule} from "ng-zorro-antd/modal";
 import {NzButtonModule} from "ng-zorro-antd/button";
 import {NzIconModule} from "ng-zorro-antd/icon";
+import { BookCardsMiniComponent } from './components/book-cards-mini/book-cards-mini.component';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import {NzIconModule} from "ng-zorro-antd/icon";
     AllInstituteLiteratureComponent,
     CarouselComponent,
     AuthorDetailComponent,
+    BookCardsMiniComponent,
   ],
   imports: [
     CommonModule,
