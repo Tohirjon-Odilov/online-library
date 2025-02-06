@@ -23,6 +23,7 @@ export class BookCardsMiniComponent implements OnInit{
     const user: any = jwtDecode(localStorage.getItem('userData') as string);
     this.userId = user.UserId
     this.baseUrl = environment.baseUrl
+    console.log(this.favoriteBooks)
   }
 
   removeFromFavorites(event: any, book: any): void {
@@ -35,6 +36,7 @@ export class BookCardsMiniComponent implements OnInit{
       (_) => {
         this.notification.info('O\'chirildi', 'Kitob yoqqanlardan o\'chirildi.');
         selectedBook.style.display = "none";
+
         // book.user_ids = book.user_ids.filter((id: number) => id !== this.userId); // Foydalanuvchini user_ids qatoridan o'chirish
       },
       (_) => {

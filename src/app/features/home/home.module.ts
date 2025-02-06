@@ -23,6 +23,7 @@ import {NzModalModule} from "ng-zorro-antd/modal";
 import {NzButtonModule} from "ng-zorro-antd/button";
 import {NzIconModule} from "ng-zorro-antd/icon";
 import { BookCardsMiniComponent } from './components/book-cards-mini/book-cards-mini.component';
+import {NzEmptyModule} from "ng-zorro-antd/empty";
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import { BookCardsMiniComponent } from './components/book-cards-mini/book-cards-
     NzModalModule,
     NzButtonModule,
     NzIconModule,
-    NzTypographyModule
+    NzEmptyModule,
+    NzTypographyModule,
   ]
 })
 export class HomeModule {

@@ -18,6 +18,7 @@ import {NzListModule} from "ng-zorro-antd/list";
 import {NzTypographyModule} from "ng-zorro-antd/typography";
 import {NgZorroModule} from "./shared/ng-zorro.module";
 import {FeatureModule} from "./shared/feature.module";
+import {en_US, provideNzI18n} from "ng-zorro-antd/i18n";
 
 // Tarjima loader'ini yaratish funksiyasi
 export function HttpLoaderFactory(http: HttpClient) {
@@ -37,6 +38,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     HttpClientModule,
     FeatureModule,
     NgZorroModule,
+
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -52,7 +54,9 @@ export function HttpLoaderFactory(http: HttpClient) {
       progressBar: true, // Toastr uchun progress-bar
     })
   ],
-  providers: [],
+  providers   : [
+    provideNzI18n(en_US)
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
