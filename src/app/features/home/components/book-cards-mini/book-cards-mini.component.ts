@@ -12,7 +12,7 @@ import {environment} from "../../../../../environments/environment";
 export class BookCardsMiniComponent implements OnInit{
   userId: string = ""
   baseUrl: string = ""
-  @Input() favoriteBooks: any
+  @Input() books: any
 
   constructor(
     private userService: UserService,
@@ -23,7 +23,7 @@ export class BookCardsMiniComponent implements OnInit{
     const user: any = jwtDecode(localStorage.getItem('userData') as string);
     this.userId = user.UserId
     this.baseUrl = environment.baseUrl
-    console.log(this.favoriteBooks)
+    console.log(this.books)
   }
 
   removeFromFavorites(event: any, book: any): void {
@@ -35,8 +35,8 @@ export class BookCardsMiniComponent implements OnInit{
     this.userService.removeBookFromUser(formData).subscribe(
       (_) => {
         this.notification.info('O\'chirildi', 'Kitob yoqqanlardan o\'chirildi.');
-        selectedBook.style.display = "none";
-
+        // selectedBook.style.display = "none";
+        this.books = []
         // book.user_ids = book.user_ids.filter((id: number) => id !== this.userId); // Foydalanuvchini user_ids qatoridan o'chirish
       },
       (_) => {

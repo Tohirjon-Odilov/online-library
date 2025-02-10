@@ -1,8 +1,8 @@
 <div class="favorite-books">
   <h2>Yoqgan kitoblar</h2>
-  <div class="books-list" *ngIf="favoriteBooks.length !== 0; else noData">
-    <div class="book-card" *ngFor="let book of favoriteBooks">
-      <div [routerLink]="['/book-detail', favoriteBooks.id]">
+  <div class="books-list" *ngIf="books.length !== 0; else noData">
+    <div class="book-card" *ngFor="let book of books">
+      <div [routerLink]="['/book-detail', books.id]">
         <img [src]="baseUrl+'/'+book.picture_url" alt="Book C*over" class="book-cover"/>
         <h3>{{ book.name }}</h3>
         <p>{{ book.author }}</p>
@@ -14,6 +14,6 @@
   </div>
 
   <ng-template #noData>
-    <nz-empty></nz-empty>
+    <nz-empty title="Bu yerda tanlangan kitoblar o'rin oladi." nzNotFoundContent="Tanlangan kitoblar mavjud emas"></nz-empty>
   </ng-template>
 </div>

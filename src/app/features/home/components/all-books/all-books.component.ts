@@ -3,8 +3,8 @@ import { BookService } from '../../services/book.service';
 import { environment } from '../../../../../environments/environment';
 import { UserService } from '../../../../core/services/user.service';
 import {jwtDecode, JwtPayload} from 'jwt-decode';
-import { ToastrService } from 'ngx-toastr';
 import {ActivatedRoute} from "@angular/router";
+import {NzNotificationService} from "ng-zorro-antd/notification";
 
 interface MyJwtPayload extends JwtPayload {
   UserId: number | null;
@@ -17,34 +17,7 @@ interface MyJwtPayload extends JwtPayload {
 })
 
 export class AllBooksComponent implements OnInit {
-  books: any = [
-    {
-      title: 'The Stranger',
-      author: 'Albert Camus',
-      price: 18,
-      image: '../../../../../assets/imgs/book1.png',
-    },
-    {
-      title: 'Der Process',
-      author: 'Franz Kafka',
-      price: 22,
-      image: '../../../../../assets/imgs/book2.png',
-    },
-    {
-      title: 'Confessions of a Mask',
-      author: 'Yukio Mishima',
-      price: 15,
-      image: '../../../../../assets/imgs/book3.png',
-    },
-    {
-      title: 'Confessions of a Mask',
-      author: 'Yukio Mishima',
-      price: 15,
-      image: '../../../../../assets/imgs/book3.png',
-    },
-
-    // Add more books as needed
-  ];
+  books: any = [];
   baseUrl = environment.baseUrl
 
   userId: number | null = null
@@ -52,7 +25,7 @@ export class AllBooksComponent implements OnInit {
   constructor(
     private bookService: BookService,
     private userService: UserService,
-    private toaster: ToastrService,
+    private toaster: NzNotificationService,
     private route: ActivatedRoute
   ) { }
 
@@ -81,14 +54,14 @@ export class AllBooksComponent implements OnInit {
 
     this.userService.addBookToUser(formData).subscribe(
       (response) => {
-        this.toaster.success('Yoqgan kitoblarga muvaffaqiyatli qo\'shildi.', 'Muvaffaqiyat');
+        this.toaster.success('Muvaffaqiyat','Yoqgan kitoblarga muvaffaqiyatli qo\'shildi.');
         if (!book.user_ids) {
           book.user_ids = [];
         }
         book.user_ids.push(this.userId); // Kitobning user_ids qatoriga qo'shish
       },
       (error) => {
-        this.toaster.error('Allaqachon yoqgan kitoblarga qo\'shilgan!', 'Xatolik');
+        this.toaster.error('Xatolik', 'Allaqachon yoqgan kitoblarga qo\'shilgan!');
       }
     );
   }
@@ -100,11 +73,11 @@ export class AllBooksComponent implements OnInit {
 
     this.userService.removeBookFromUser(formData).subscribe(
       (response) => {
-        this.toaster.info('Kitob yoqqanlardan o\'chirildi.', 'O\'chirildi');
+        this.toaster.info('O\'chirildi','Kitob yoqqanlardan o\'chirildi.');
         book.user_ids = book.user_ids.filter((id: number) => id !== this.userId); // Foydalanuvchini user_ids qatoridan o'chirish
       },
       (error) => {
-        this.toaster.error('Xatolik yuz berdi!', 'Xatolik');
+        this.toaster.error('Xatolik','Xatolik yuz berdi!');
       }
     );
   }

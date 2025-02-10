@@ -20,19 +20,7 @@
         <h2>Tanlangan kategoriyaga oid kitoblar</h2>
         <div class="books-list">
           <ng-container *ngIf="selectedData && selectedData.length !== 0; else loading">
-            <div
-              class="book-card"
-              *ngFor="let book of selectedData"
-              [routerLink]="['/book-detail/', book.id]"
-            >
-              <img
-                [src]="'https://app.tohirjon.uz/' + book.picture_url"
-                alt="Book Cover"
-                class="book-cover"
-              />
-              <h3>{{ book.name }}</h3>
-              <p>{{ book.type }}</p>
-            </div>
+            <app-book-cards-mini [books]="selectedData"></app-book-cards-mini>
           </ng-container>
 
           <ng-template #loading>
