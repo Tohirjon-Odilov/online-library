@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { LoggerService } from '../../../../core/services/logger.service';
 import { Router } from '@angular/router';
 import { CategoryService } from '../../services/category.service';
@@ -8,7 +8,7 @@ import { CategoryService } from '../../services/category.service';
   templateUrl: './all-categories.component.html',
   styleUrls: ['./all-categories.component.scss']
 })
-export class AllCategoriesComponent {
+export class AllCategoriesComponent implements OnInit{
 
   constructor(
     // private logger: LoggerService,

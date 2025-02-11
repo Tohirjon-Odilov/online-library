@@ -203,14 +203,14 @@
     i{
       font-size: large;
 
-      
+
       // &:last-child{
       //   display: none
       // }
     }
 
   }
-  
+
   .favorite-button:hover {
     i:hover {
       color: royalblue;
@@ -222,14 +222,14 @@
       // &:first-child{
       //   display: none;
       // }
-      
+
       // &:last-child{
       //   color: red;
       //   display: block;
       // }
     // }
   // }
-  
+
 }
 
 
@@ -301,6 +301,6 @@
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-
-
-
+.favorite-books {
+  margin-top: 50px;
+}

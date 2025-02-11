@@ -21,7 +21,10 @@
         </div>
       </div>
 
-      <app-book-cards-mini [books]="favoriteBooks"></app-book-cards-mini>
+      <div class="favorite-books">
+        <h2>Yoqgan kitoblar</h2>
+        <app-book-cards-mini [books]="favoriteBooks"></app-book-cards-mini>
+      </div>
     </ng-container>
 
     <ng-template #loading>
