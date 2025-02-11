@@ -20,7 +20,7 @@
         <h2>Tanlangan kategoriyaga oid kitoblar</h2>
         <div class="books-list">
           <ng-container *ngIf="selectedData && selectedData.length !== 0; else loading">
-            <app-book-cards-mini [books]="selectedData"></app-book-cards-mini>
+            <app-book-cards-mini *ngFor="let book of selectedData" [bookId]="book.id"></app-book-cards-mini>
           </ng-container>
 
           <ng-template #loading>

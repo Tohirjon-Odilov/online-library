@@ -6,17 +6,17 @@
         <div class="book-info">
 <!--          <h1>{{ book?.name }}</h1>-->
           <nz-list class="book-details">
-            <nz-list-item *ngIf="book?.country?.name">
-              <strong>Mamlakat:</strong> {{ book?.country?.name }}
+            <nz-list-item *ngIf="book?.category_name">
+              <strong>Mamlakat:</strong> {{ book?.category_name }}
             </nz-list-item>
-            <nz-list-item *ngIf="book?.author?.full_name">
-              <strong>Muallif:</strong> {{ book?.author?.full_name }}
+            <nz-list-item *ngIf="book?.author_name">
+              <strong>Muallif:</strong> {{ book?.author_name }}
             </nz-list-item>
             <nz-list-item *ngIf="book?.length">
               <strong>Hajmi:</strong> {{ book?.length }} sahifa
             </nz-list-item>
-            <nz-list-item *ngIf="book?.category?.name">
-              <strong>Bo‘lim:</strong> <nz-tag *ngIf=" book?.category?.name" nzColor="blue">{{ book?.category?.name }}</nz-tag>
+            <nz-list-item *ngIf="book?.category_name">
+              <strong>Bo‘lim:</strong> <nz-tag *ngIf=" book?.category_name" nzColor="blue">{{ book?.category_name }}</nz-tag>
             </nz-list-item>
           </nz-list>
         </div>
